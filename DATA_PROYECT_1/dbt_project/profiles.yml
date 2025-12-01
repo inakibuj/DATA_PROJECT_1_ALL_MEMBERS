@@ -1,0 +1,12 @@
+calidad_aire_profile:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      threads: 1
+      host: postgres_dp1      # Nombre del contenedor de la DB
+      port: 5432
+      user: admin
+      pass: admin
+      dbname: calidad_aire
+      schema: public

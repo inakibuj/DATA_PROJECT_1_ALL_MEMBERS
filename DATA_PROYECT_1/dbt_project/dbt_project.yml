@@ -1,0 +1,24 @@
+name: 'calidad_aire_valencia'
+version: '1.0.0'
+config-version: 2
+
+# Esto enlaza con el archivo de perfiles (Paso 2)
+profile: 'calidad_aire_profile'
+
+# Carpetas donde DBT buscará código
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configuración global de modelos
+models:
+  calidad_aire_valencia:
+    materialized: view # Por defecto creará "Vistas" (tablas virtuales)

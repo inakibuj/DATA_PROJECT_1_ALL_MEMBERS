@@ -1,0 +1,121 @@
+version: '3.8'
+
+services:
+  # -----------------------------
+  # INFRAESTRUCTURA (Cimientos)
+  # -----------------------------
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "22181:2181"
+    networks:
+      - dp1_network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    depends_on:
+      - zookeeper
+    ports:
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+      - dp1_network
+
+  postgres:
+    image: postgres:13
+    container_name: postgres_dp1
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: calidad_aire
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data_dp1:/var/lib/postgresql/data
+    networks:
+      - dp1_network
+
+  # -----------------------------
+  # APLICACIONES (Tu código)
+  # -----------------------------
+  
+  producer:
+    build: ./producers
+    container_name: python_producer
+    depends_on:
+      - kafka
+    networks:
+      - dp1_network
+    restart: on-failure 
+
+  consumer:
+    build: ./consumers
+    container_name: python_consumer
+    depends_on:
+      - kafka
+      - postgres
+    networks:
+      - dp1_network
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: calidad_aire
+
+  # 3. Transformación (CON EL ARREGLO DE 'TAIL' APLICADO)
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-postgres:1.6.0
+    container_name: dbt_transformer
+    working_dir: /usr/app/dbt
+    volumes:
+      - ./dbt_project:/usr/app/dbt
+    networks:
+      - dp1_network
+    depends_on:
+      - postgres
+    # Sobrescribimos el entrypoint para evitar el error "No such command tail"
+    entrypoint: ["/bin/bash", "-c"]
+    command: ["tail -f /dev/null"]
+
+  dashboard:
+    build: ./dashboard
+    container_name: plotly_dashboard
+    ports:
+      - "8050:8050"
+    depends_on:
+      - postgres
+    networks:
+      - dp1_network
+
+  # -----------------------------
+  # HERRAMIENTAS VISUALES (Solo Kafka-UI)
+  # -----------------------------
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka_ui
+    ports:
+      - "8080:8080" 
+    environment:
+      DYNAMIC_CONFIG_ENABLED: 'true'
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+    networks:
+      - dp1_network
+    depends_on:
+      - kafka
+
+volumes:
+  postgres_data_dp1:
+
+networks:
+  dp1_network:
+    driver: bridge
+
