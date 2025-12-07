@@ -44,6 +44,22 @@ services:
     networks:
       - dp1_network
 
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: dataproject1@admin.com
+      PGADMIN_DEFAULT_PASSWORD: icjc5
+    ports:
+      - "5050:80"          # acceso a pgAdmin en http://localhost:5050
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    networks:
+      - dp1_network
+
+
   # -----------------------------
   # APLICACIONES (Tu código)
   # -----------------------------
@@ -114,6 +130,8 @@ services:
 
 volumes:
   postgres_data_dp1:
+  pgadmin_data:
+
 
 networks:
   dp1_network:
