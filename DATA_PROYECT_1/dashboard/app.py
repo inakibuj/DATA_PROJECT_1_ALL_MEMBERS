@@ -16,6 +16,8 @@ DB_PORT = "5432"
 DB_NAME = "calidad_aire"
 DATABASE_URI = f'postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
 LIMITE_NO2 = 100 
+MAX_GREEN_LEVEL=120
+MAX_YELLOW_LEVEL=200
 
 geolocator = Nominatim(user_agent="valencia_air_app")
 
@@ -179,8 +181,8 @@ def check_street_alert(n_clicks, calle):
         nombre = nearest_station['nombre_estacion']
         dist_txt = f"{min_dist:.2f} km"
         
-        color_alert = "danger" if nivel > LIMITE_NO2 else "success"
-        mensaje = "🚨 PELIGRO" if nivel > LIMITE_NO2 else "✅ AIRE LIMPIO"
+        color_alert = "danger" if nivel > MAX_YELLOW_LEVEL else "success"
+        mensaje = "🚨 PELIGRO" if nivel > MAX_YELLOW_LEVEL else "✅ AIRE LIMPIO"
         alert = dbc.Alert([html.H5(f"{mensaje} en {nombre}"), html.P(f"Distancia: {dist_txt}")], color=color_alert)
             
         fig = go.Figure(go.Indicator(
@@ -194,11 +196,11 @@ def check_street_alert(n_clicks, calle):
                 'bgcolor': "white",
                 'borderwidth': 0,
                 'steps': [
-                    {'range': [0, 100], 'color': "#abebc6"},
-                    {'range': [100, 150], 'color': "#dfe21d"},
-                    {'range': [150, 300], 'color': "#fadbd8"}
+                    {'range': [0, MAX_GREEN_LEVEL], 'color': "#abebc6"},
+                    {'range': [MAX_GREEN_LEVEL, MAX_YELLOW_LEVEL], 'color': "#dfe21d"},
+                    {'range': [MAX_YELLOW_LEVEL, 300], 'color': "#fadbd8"}
                 ],
-                'threshold': {'line': {'color': "#e74c3c", 'width': 4}, 'thickness': 0.8, 'value': LIMITE_NO2}
+                'threshold': {'line': {'color': "#e74c3c", 'width': 4}, 'thickness': 0.8, 'value': MAX_GREEN_LEVEL}
             }
         ))
 
@@ -242,7 +244,7 @@ def update_map(n, estacion_seleccionada, ubicacion_usuario):
         return fig_map
 
     # Add 'Estado' and size
-    df_map['Estado'] = df_map['indice_aqi'].apply(lambda x: 'Peligro' if x > LIMITE_NO2 else 'Bueno')
+    df_map['Estado'] = df_map['indice_aqi'].apply(lambda x: 'Peligro' if x > MAX_YELLOW_LEVEL else 'Bueno')
     if estacion_seleccionada:
         df_map.loc[df_map['nombre_estacion'] == estacion_seleccionada, 'Estado'] = 'Estación Cercana'
     df_map['tamano_visual'] = df_map['indice_aqi'].fillna(0) + 25  # avoid NaN
@@ -304,7 +306,7 @@ def update_trend_graph(estacion_seleccionada, n):
             return px.line(title="Sin datos"), f"Histórico: {estacion_seleccionada}"
         
         fig = px.area(df_hist, x='ingestion_time', y='indice_aqi', markers=True, title="")
-        fig.add_hline(y=LIMITE_NO2, line_dash="dash", line_color="red", annotation_text="Límite Tóxico")
+        fig.add_hline(y=MAX_YELLOW_LEVEL, line_dash="dash", line_color="red", annotation_text="Límite Tóxico")
         fig.update_traces(line_color='#3498db', fillcolor="rgba(52, 152, 219, 0.2)")
         fig.update_layout(
             margin=dict(l=20, r=20, t=20, b=20),
