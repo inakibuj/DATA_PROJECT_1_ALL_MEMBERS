@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   # -----------------------------
-  # INFRAESTRUCTURA (Cimientos)
+  # INFRAESTRUCTURA
   # -----------------------------
   zookeeper:
     image: confluentinc/cp-zookeeper:7.4.0
@@ -29,7 +29,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     networks:
       - dp1_network
-
+  
   postgres:
     image: postgres:13
     container_name: postgres_dp1
@@ -43,6 +43,11 @@ services:
       - postgres_data_dp1:/var/lib/postgresql/data
     networks:
       - dp1_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d calidad_aire"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -50,18 +55,21 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: dataproject1@admin.com
       PGADMIN_DEFAULT_PASSWORD: icjc5
+      PGADMIN_SERVER_JSON_FILE: /pgadmin4/servers.json
     ports:
-      - "5050:80"          # acceso a pgAdmin en http://localhost:5050
+      - "5050:80"
     volumes:
       - pgadmin_data:/var/lib/pgadmin
+      - ./pgadmin/servers.json:/pgadmin4/servers.json
     depends_on:
       - postgres
     networks:
       - dp1_network
 
 
+
   # -----------------------------
-  # APLICACIONES (Tu código)
+  # APLICACIONES
   # -----------------------------
   
   producer:
@@ -86,7 +94,7 @@ services:
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: calidad_aire
 
-  # 3. Transformación (CON EL ARREGLO DE 'TAIL' APLICADO)
+  # 3. Transformación
   dbt:
     image: ghcr.io/dbt-labs/dbt-postgres:1.6.0
     container_name: dbt_transformer
@@ -96,10 +104,13 @@ services:
     networks:
       - dp1_network
     depends_on:
-      - postgres
-    # Sobrescribimos el entrypoint para evitar el error "No such command tail"
+      postgres:
+        condition: service_healthy 
+    environment:
+      DBT_PROFILES_DIR: /usr/app/dbt 
     entrypoint: ["/bin/bash", "-c"]
-    command: ["tail -f /dev/null"]
+    command: ["cd /usr/app/dbt && dbt deps && dbt run && tail -f /dev/null"]
+
 
   dashboard:
     build: ./dashboard
@@ -111,9 +122,6 @@ services:
     networks:
       - dp1_network
 
-  # -----------------------------
-  # HERRAMIENTAS VISUALES (Solo Kafka-UI)
-  # -----------------------------
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
     container_name: kafka_ui

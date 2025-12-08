@@ -679,3 +679,1720 @@ drop table if exists "calidad_aire"."public"."clean_pollution__dbt_backup" casca
 [0m22:28:08.753836 [debug] [MainThread]: Command `dbt run` succeeded at 22:28:08.753381 after 3.45 seconds
 [0m22:28:08.758591 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75b40a697fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75b40a5403d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75b40a540350>]}
 [0m22:28:08.761069 [debug] [MainThread]: Flushing usage events
+[0m11:04:08.670627 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731f35191610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731f35191650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731f35192550>]}
+
+
+============================== 11:04:08.676309 | 0660b243-2885-44c0-98fd-2dca1181d5d8 ==============================
+[0m11:04:08.676309 [info ] [MainThread]: Running with dbt=1.6.0
+[0m11:04:08.677580 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': '/usr/app/dbt', 'log_path': '/usr/app/dbt/logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'invocation_command': 'dbt debug', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:04:08.679651 [info ] [MainThread]: dbt version: 1.6.0
+[0m11:04:08.681002 [info ] [MainThread]: python version: 3.11.2
+[0m11:04:08.681990 [info ] [MainThread]: python path: /usr/local/bin/python
+[0m11:04:08.682977 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.31
+[0m11:04:08.764674 [info ] [MainThread]: Using profiles dir at /usr/app/dbt
+[0m11:04:08.766475 [info ] [MainThread]: Using profiles.yml file at /usr/app/dbt/profiles.yml
+[0m11:04:08.767861 [info ] [MainThread]: Using dbt_project.yml file at /usr/app/dbt/dbt_project.yml
+[0m11:04:08.769292 [info ] [MainThread]: adapter type: postgres
+[0m11:04:08.770378 [info ] [MainThread]: adapter version: 1.6.0
+[0m11:04:08.788462 [info ] [MainThread]: Configuration:
+[0m11:04:08.789876 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m11:04:08.791185 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m11:04:08.792359 [info ] [MainThread]: Required dependencies:
+[0m11:04:08.793182 [debug] [MainThread]: Executing "git --help"
+[0m11:04:08.795778 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone             Clone a repository into a new directory\n   init              Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add               Add file contents to the index\n   mv                Move or rename a file, a directory, or a symlink\n   restore           Restore working tree files\n   rm                Remove files from the working tree and from the index\n   sparse-checkout   Initialize and modify the sparse-checkout\n\nexamine the history and state (see also: git help revisions)\n   bisect            Use binary search to find the commit that introduced a bug\n   diff              Show changes between commits, commit and working tree, etc\n   grep              Print lines matching a pattern\n   log               Show commit logs\n   show              Show various types of objects\n   status            Show the working tree status\n\ngrow, mark and tweak your common history\n   branch            List, create, or delete branches\n   commit            Record changes to the repository\n   merge             Join two or more development histories together\n   rebase            Reapply commits on top of another base tip\n   reset             Reset current HEAD to the specified state\n   switch            Switch branches\n   tag               Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch             Download objects and refs from another repository\n   pull              Fetch from and integrate with another repository or a local branch\n   push              Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m11:04:08.797199 [debug] [MainThread]: STDERR: "b''"
+[0m11:04:08.798334 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m11:04:08.799549 [info ] [MainThread]: Connection:
+[0m11:04:08.800251 [info ] [MainThread]:   host: postgres_dp1
+[0m11:04:08.801560 [info ] [MainThread]:   port: 5432
+[0m11:04:08.802579 [info ] [MainThread]:   user: admin
+[0m11:04:08.803617 [info ] [MainThread]:   database: calidad_aire
+[0m11:04:08.804493 [info ] [MainThread]:   schema: public
+[0m11:04:08.805680 [info ] [MainThread]:   connect_timeout: 10
+[0m11:04:08.806532 [info ] [MainThread]:   role: None
+[0m11:04:08.807747 [info ] [MainThread]:   search_path: None
+[0m11:04:08.808963 [info ] [MainThread]:   keepalives_idle: 0
+[0m11:04:08.810036 [info ] [MainThread]:   sslmode: None
+[0m11:04:08.811322 [info ] [MainThread]:   sslcert: None
+[0m11:04:08.812438 [info ] [MainThread]:   sslkey: None
+[0m11:04:08.813698 [info ] [MainThread]:   sslrootcert: None
+[0m11:04:08.814490 [info ] [MainThread]:   application_name: dbt
+[0m11:04:08.815531 [info ] [MainThread]:   retries: 1
+[0m11:04:08.817485 [info ] [MainThread]: Registered adapter: postgres=1.6.0
+[0m11:04:08.818702 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m11:04:08.820062 [debug] [MainThread]: Using postgres connection "debug"
+[0m11:04:08.823940 [debug] [MainThread]: On debug: select 1 as id
+[0m11:04:08.828398 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:04:08.835975 [debug] [MainThread]: SQL status: SELECT 1 in 0.0 seconds
+[0m11:04:08.838116 [debug] [MainThread]: On debug: Close
+[0m11:04:08.839318 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m11:04:08.840432 [info ] [MainThread]: [32mAll checks passed![0m
+[0m11:04:08.842363 [debug] [MainThread]: Command `dbt debug` succeeded at 11:04:08.842193 after 0.22 seconds
+[0m11:04:08.843876 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m11:04:08.845451 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731f36c2afd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731f3931c610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731f3931e310>]}
+[0m11:04:08.846590 [debug] [MainThread]: Flushing usage events
+[0m11:04:17.033398 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4c23670e90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4c23662f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4c23fe20d0>]}
+
+
+============================== 11:04:17.036332 | 491cc3c0-b668-4890-900f-91224a68dc61 ==============================
+[0m11:04:17.036332 [info ] [MainThread]: Running with dbt=1.6.0
+[0m11:04:17.037460 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/usr/app/dbt/logs', 'profiles_dir': '/usr/app/dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt run', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:04:17.212638 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '491cc3c0-b668-4890-900f-91224a68dc61', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4c2349cb90>]}
+[0m11:04:17.221659 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '491cc3c0-b668-4890-900f-91224a68dc61', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4c2353fc50>]}
+[0m11:04:17.226755 [info ] [MainThread]: Registered adapter: postgres=1.6.0
+[0m11:04:17.234759 [debug] [MainThread]: checksum: 08dabea3fc65f9f8dd48613681c2bcd827397a7ba9ce4c6d52980aba1215e8c9, vars: {}, profile: , target: , version: 1.6.0
+[0m11:04:17.327664 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:04:17.330885 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:04:17.342641 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '491cc3c0-b668-4890-900f-91224a68dc61', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4c23539d10>]}
+[0m11:04:17.401670 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '491cc3c0-b668-4890-900f-91224a68dc61', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4c21d48ad0>]}
+[0m11:04:17.404112 [info ] [MainThread]: Found 1 model, 0 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[0m11:04:17.406314 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '491cc3c0-b668-4890-900f-91224a68dc61', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4c236601d0>]}
+[0m11:04:17.409225 [info ] [MainThread]: 
+[0m11:04:17.411259 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m11:04:17.413726 [debug] [ThreadPool]: Acquiring new postgres connection 'list_calidad_aire'
+[0m11:04:17.430264 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire"
+[0m11:04:17.432087 [debug] [ThreadPool]: On list_calidad_aire: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m11:04:17.433244 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:04:17.438266 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.0 seconds
+[0m11:04:17.440483 [debug] [ThreadPool]: On list_calidad_aire: Close
+[0m11:04:17.442779 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_calidad_aire, now list_calidad_aire_public)
+[0m11:04:17.449982 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m11:04:17.451672 [debug] [ThreadPool]: On list_calidad_aire_public: BEGIN
+[0m11:04:17.453090 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:04:17.457200 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m11:04:17.458596 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m11:04:17.459790 [debug] [ThreadPool]: On list_calidad_aire_public: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire_public"} */
+select
+      'calidad_aire' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m11:04:17.462978 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.0 seconds
+[0m11:04:17.464884 [debug] [ThreadPool]: On list_calidad_aire_public: ROLLBACK
+[0m11:04:17.466070 [debug] [ThreadPool]: On list_calidad_aire_public: Close
+[0m11:04:17.470446 [debug] [MainThread]: Using postgres connection "master"
+[0m11:04:17.471534 [debug] [MainThread]: On master: BEGIN
+[0m11:04:17.472545 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:04:17.476176 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:04:17.477519 [debug] [MainThread]: Using postgres connection "master"
+[0m11:04:17.478995 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m11:04:17.484237 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m11:04:17.485995 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '491cc3c0-b668-4890-900f-91224a68dc61', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4c24329e10>]}
+[0m11:04:17.487282 [debug] [MainThread]: On master: ROLLBACK
+[0m11:04:17.488499 [debug] [MainThread]: Using postgres connection "master"
+[0m11:04:17.489470 [debug] [MainThread]: On master: BEGIN
+[0m11:04:17.490644 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:04:17.492644 [debug] [MainThread]: On master: COMMIT
+[0m11:04:17.494559 [debug] [MainThread]: Using postgres connection "master"
+[0m11:04:17.497135 [debug] [MainThread]: On master: COMMIT
+[0m11:04:17.499796 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m11:04:17.503281 [debug] [MainThread]: On master: Close
+[0m11:04:17.506748 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:04:17.510291 [info ] [MainThread]: 
+[0m11:04:17.518765 [debug] [Thread-1 (]: Began running node model.calidad_aire_valencia.clean_pollution
+[0m11:04:17.522284 [info ] [Thread-1 (]: 1 of 1 START sql table model public.clean_pollution ............................ [RUN]
+[0m11:04:17.525911 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_calidad_aire_public, now model.calidad_aire_valencia.clean_pollution)
+[0m11:04:17.531412 [debug] [Thread-1 (]: Began compiling node model.calidad_aire_valencia.clean_pollution
+[0m11:04:17.538383 [debug] [Thread-1 (]: Writing injected SQL for node "model.calidad_aire_valencia.clean_pollution"
+[0m11:04:17.766779 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (compile): 11:04:17.533567 => 11:04:17.764163
+[0m11:04:17.813399 [debug] [Thread-1 (]: Began executing node model.calidad_aire_valencia.clean_pollution
+[0m11:04:17.870551 [debug] [Thread-1 (]: Writing runtime sql for node "model.calidad_aire_valencia.clean_pollution"
+[0m11:04:18.151301 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:04:18.187498 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: BEGIN
+[0m11:04:18.215603 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:04:18.253789 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m11:04:18.273108 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:04:18.300352 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+
+  
+    
+
+  create  table "calidad_aire"."public"."clean_pollution__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+SELECT
+    -- El valor de contaminación
+    CAST(data->>'no2' AS NUMERIC) as indice_aqi,
+    
+    -- El nombre de la estación
+    COALESCE(data->>'nombre', 'Estación ' || COALESCE(data->>'objectid', 'X')) as nombre_estacion,
+    
+    -- EXTRAEMOS LAS COORDENADAS (¡La parte nueva!)
+    -- La API suele devolver geo_point_2d como un objeto JSON {"lon": X, "lat": Y}
+    CAST(data->'geo_point_2d'->>'lat' AS NUMERIC) as latitud,
+    CAST(data->'geo_point_2d'->>'lon' AS NUMERIC) as longitud,
+
+    ingestion_time
+
+FROM raw_pollution
+WHERE data->>'no2' IS NOT NULL
+-- Solo nos quedamos con filas que tengan coordenadas para poder calcular distancias
+AND data->'geo_point_2d'->>'lat' IS NOT NULL
+  );
+  
+[0m11:04:18.348115 [debug] [Thread-1 (]: SQL status: SELECT 22 in 0.0 seconds
+[0m11:04:18.401253 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:04:18.427238 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+alter table "calidad_aire"."public"."clean_pollution__dbt_tmp" rename to "clean_pollution"
+[0m11:04:18.458425 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m11:04:18.510444 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m11:04:18.542305 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:04:18.562579 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m11:04:18.593029 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m11:04:18.632347 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:04:18.662021 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+drop table if exists "calidad_aire"."public"."clean_pollution__dbt_backup" cascade
+[0m11:04:18.680231 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m11:04:18.709699 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (execute): 11:04:17.838109 => 11:04:18.709562
+[0m11:04:18.757446 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: Close
+[0m11:04:18.787606 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '491cc3c0-b668-4890-900f-91224a68dc61', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4c21dcf810>]}
+[0m11:04:18.818124 [info ] [Thread-1 (]: 1 of 1 OK created sql table model public.clean_pollution ....................... [[32mSELECT 22[0m in 1.26s]
+[0m11:04:18.844672 [debug] [Thread-1 (]: Finished running node model.calidad_aire_valencia.clean_pollution
+[0m11:04:18.998699 [debug] [MainThread]: Using postgres connection "master"
+[0m11:04:19.025321 [debug] [MainThread]: On master: BEGIN
+[0m11:04:19.061890 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:04:19.109366 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:04:19.139636 [debug] [MainThread]: On master: COMMIT
+[0m11:04:19.166227 [debug] [MainThread]: Using postgres connection "master"
+[0m11:04:19.196933 [debug] [MainThread]: On master: COMMIT
+[0m11:04:19.231138 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m11:04:19.270753 [debug] [MainThread]: On master: Close
+[0m11:04:19.306999 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:04:19.330618 [debug] [MainThread]: Connection 'model.calidad_aire_valencia.clean_pollution' was properly closed.
+[0m11:04:19.355832 [info ] [MainThread]: 
+[0m11:04:19.387793 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 1.94 seconds (1.94s).
+[0m11:04:19.420435 [debug] [MainThread]: Command end result
+[0m11:04:19.958995 [info ] [MainThread]: 
+[0m11:04:19.987441 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:04:20.012390 [info ] [MainThread]: 
+[0m11:04:20.037307 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m11:04:20.057557 [debug] [MainThread]: Command `dbt run` succeeded at 11:04:20.057233 after 3.04 seconds
+[0m11:04:20.074869 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4c27628590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4c27784150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4c27785050>]}
+[0m11:04:20.093457 [debug] [MainThread]: Flushing usage events
+[0m11:18:10.774230 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b774a9b5fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b774af620d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b774a9b6250>]}
+
+
+============================== 11:18:10.802051 | 11bc507f-21e5-483f-a374-08f6de7cd4f3 ==============================
+[0m11:18:10.802051 [info ] [MainThread]: Running with dbt=1.6.0
+[0m11:18:10.829748 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': '/usr/app/dbt/logs', 'profiles_dir': '/usr/app/dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt deps', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:18:11.044389 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '11bc507f-21e5-483f-a374-08f6de7cd4f3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b774a9b4a90>]}
+[0m11:18:11.121866 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m11:18:11.144335 [debug] [MainThread]: Command `dbt deps` succeeded at 11:18:11.143948 after 0.82 seconds
+[0m11:18:11.163848 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b774a9bb990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b774e9745d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b774e974550>]}
+[0m11:18:11.188488 [debug] [MainThread]: Flushing usage events
+[0m11:18:13.345527 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d942d7ccd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d942d72d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d942d6ef10>]}
+
+
+============================== 11:18:13.348725 | c3f2a35e-9ea7-448d-be7e-f5bcda9dd40b ==============================
+[0m11:18:13.348725 [info ] [MainThread]: Running with dbt=1.6.0
+[0m11:18:13.352889 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt', 'version_check': 'True', 'warn_error': 'None', 'log_path': '/usr/app/dbt/logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt run', 'send_anonymous_usage_stats': 'True'}
+[0m11:18:13.472445 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c3f2a35e-9ea7-448d-be7e-f5bcda9dd40b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d942d6ea50>]}
+[0m11:18:13.478247 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'c3f2a35e-9ea7-448d-be7e-f5bcda9dd40b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d942da09d0>]}
+[0m11:18:13.480121 [info ] [MainThread]: Registered adapter: postgres=1.6.0
+[0m11:18:13.496517 [debug] [MainThread]: checksum: 08dabea3fc65f9f8dd48613681c2bcd827397a7ba9ce4c6d52980aba1215e8c9, vars: {}, profile: , target: , version: 1.6.0
+[0m11:18:13.558521 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:18:13.560590 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:18:13.566070 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'c3f2a35e-9ea7-448d-be7e-f5bcda9dd40b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d942d73210>]}
+[0m11:18:13.642441 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'c3f2a35e-9ea7-448d-be7e-f5bcda9dd40b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d941648510>]}
+[0m11:18:13.643627 [info ] [MainThread]: Found 1 model, 0 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[0m11:18:13.644769 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c3f2a35e-9ea7-448d-be7e-f5bcda9dd40b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d9442f2890>]}
+[0m11:18:13.646372 [info ] [MainThread]: 
+[0m11:18:13.647439 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m11:18:13.649151 [debug] [ThreadPool]: Acquiring new postgres connection 'list_calidad_aire'
+[0m11:18:13.656292 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire"
+[0m11:18:13.657519 [debug] [ThreadPool]: On list_calidad_aire: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m11:18:13.658506 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:18:13.663511 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.0 seconds
+[0m11:18:13.666129 [debug] [ThreadPool]: On list_calidad_aire: Close
+[0m11:18:13.668093 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_calidad_aire, now list_calidad_aire_public)
+[0m11:18:13.672730 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m11:18:13.674014 [debug] [ThreadPool]: On list_calidad_aire_public: BEGIN
+[0m11:18:13.675303 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:18:13.679348 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m11:18:13.681137 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m11:18:13.687314 [debug] [ThreadPool]: On list_calidad_aire_public: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire_public"} */
+select
+      'calidad_aire' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m11:18:13.692786 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.0 seconds
+[0m11:18:13.696568 [debug] [ThreadPool]: On list_calidad_aire_public: ROLLBACK
+[0m11:18:13.699912 [debug] [ThreadPool]: On list_calidad_aire_public: Close
+[0m11:18:13.706490 [debug] [MainThread]: Using postgres connection "master"
+[0m11:18:13.711228 [debug] [MainThread]: On master: BEGIN
+[0m11:18:13.713753 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:18:13.724437 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:18:13.729285 [debug] [MainThread]: Using postgres connection "master"
+[0m11:18:13.732725 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m11:18:13.743627 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m11:18:13.748620 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c3f2a35e-9ea7-448d-be7e-f5bcda9dd40b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d94391f050>]}
+[0m11:18:13.756390 [debug] [MainThread]: On master: ROLLBACK
+[0m11:18:13.758518 [debug] [MainThread]: Using postgres connection "master"
+[0m11:18:13.763731 [debug] [MainThread]: On master: BEGIN
+[0m11:18:13.766175 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:18:13.771353 [debug] [MainThread]: On master: COMMIT
+[0m11:18:13.773411 [debug] [MainThread]: Using postgres connection "master"
+[0m11:18:13.779088 [debug] [MainThread]: On master: COMMIT
+[0m11:18:13.781503 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m11:18:13.788017 [debug] [MainThread]: On master: Close
+[0m11:18:13.790705 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:18:13.792792 [info ] [MainThread]: 
+[0m11:18:13.798654 [debug] [Thread-1 (]: Began running node model.calidad_aire_valencia.clean_pollution
+[0m11:18:13.799725 [info ] [Thread-1 (]: 1 of 1 START sql table model public.clean_pollution ............................ [RUN]
+[0m11:18:13.800646 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_calidad_aire_public, now model.calidad_aire_valencia.clean_pollution)
+[0m11:18:13.801435 [debug] [Thread-1 (]: Began compiling node model.calidad_aire_valencia.clean_pollution
+[0m11:18:13.806093 [debug] [Thread-1 (]: Writing injected SQL for node "model.calidad_aire_valencia.clean_pollution"
+[0m11:18:13.812463 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (compile): 11:18:13.802196 => 11:18:13.812256
+[0m11:18:13.813401 [debug] [Thread-1 (]: Began executing node model.calidad_aire_valencia.clean_pollution
+[0m11:18:13.835971 [debug] [Thread-1 (]: Writing runtime sql for node "model.calidad_aire_valencia.clean_pollution"
+[0m11:18:13.859039 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:18:13.861731 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: BEGIN
+[0m11:18:13.865646 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:18:13.871215 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m11:18:13.877313 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:18:13.879767 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+
+  
+    
+
+  create  table "calidad_aire"."public"."clean_pollution__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+SELECT
+    -- El valor de contaminación
+    CAST(data->>'no2' AS NUMERIC) as indice_aqi,
+    
+    -- El nombre de la estación
+    COALESCE(data->>'nombre', 'Estación ' || COALESCE(data->>'objectid', 'X')) as nombre_estacion,
+    
+    -- EXTRAEMOS LAS COORDENADAS (¡La parte nueva!)
+    -- La API suele devolver geo_point_2d como un objeto JSON {"lon": X, "lat": Y}
+    CAST(data->'geo_point_2d'->>'lat' AS NUMERIC) as latitud,
+    CAST(data->'geo_point_2d'->>'lon' AS NUMERIC) as longitud,
+
+    ingestion_time
+
+FROM raw_pollution
+WHERE data->>'no2' IS NOT NULL
+-- Solo nos quedamos con filas que tengan coordenadas para poder calcular distancias
+AND data->'geo_point_2d'->>'lat' IS NOT NULL
+  );
+  
+[0m11:18:13.887545 [debug] [Thread-1 (]: SQL status: SELECT 11 in 0.0 seconds
+[0m11:18:13.894163 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:18:13.896145 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+alter table "calidad_aire"."public"."clean_pollution__dbt_tmp" rename to "clean_pollution"
+[0m11:18:13.899078 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m11:18:13.911889 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m11:18:13.918393 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:18:13.920328 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m11:18:13.924481 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m11:18:13.930748 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:18:13.932827 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+drop table if exists "calidad_aire"."public"."clean_pollution__dbt_backup" cascade
+[0m11:18:13.934642 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m11:18:13.936932 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (execute): 11:18:13.814204 => 11:18:13.936800
+[0m11:18:13.938387 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: Close
+[0m11:18:13.940070 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c3f2a35e-9ea7-448d-be7e-f5bcda9dd40b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d9415f1410>]}
+[0m11:18:13.941423 [info ] [Thread-1 (]: 1 of 1 OK created sql table model public.clean_pollution ....................... [[32mSELECT 11[0m in 0.14s]
+[0m11:18:13.942725 [debug] [Thread-1 (]: Finished running node model.calidad_aire_valencia.clean_pollution
+[0m11:18:13.956681 [debug] [MainThread]: Using postgres connection "master"
+[0m11:18:13.958339 [debug] [MainThread]: On master: BEGIN
+[0m11:18:13.959446 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:18:13.963326 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:18:13.966717 [debug] [MainThread]: On master: COMMIT
+[0m11:18:13.969239 [debug] [MainThread]: Using postgres connection "master"
+[0m11:18:13.970468 [debug] [MainThread]: On master: COMMIT
+[0m11:18:13.971933 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m11:18:13.973241 [debug] [MainThread]: On master: Close
+[0m11:18:13.974397 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:18:13.975503 [debug] [MainThread]: Connection 'model.calidad_aire_valencia.clean_pollution' was properly closed.
+[0m11:18:13.976695 [info ] [MainThread]: 
+[0m11:18:13.977460 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.33 seconds (0.33s).
+[0m11:18:13.978373 [debug] [MainThread]: Command end result
+[0m11:18:14.003698 [info ] [MainThread]: 
+[0m11:18:14.009133 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:18:14.015501 [info ] [MainThread]: 
+[0m11:18:14.022936 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m11:18:14.025938 [debug] [MainThread]: Command `dbt run` succeeded at 11:18:14.025835 after 0.70 seconds
+[0m11:18:14.029241 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d946d64590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d946ec0150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d946ec1050>]}
+[0m11:18:14.035309 [debug] [MainThread]: Flushing usage events
+[0m11:33:51.784869 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd4c6091810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd4c7999750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd4c6091ed0>]}
+
+
+============================== 11:33:51.792239 | 578b275f-3c13-4440-b263-3df792e78bea ==============================
+[0m11:33:51.792239 [info ] [MainThread]: Running with dbt=1.6.0
+[0m11:33:51.794211 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': '/usr/app/dbt/logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt deps', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m11:33:51.823550 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '578b275f-3c13-4440-b263-3df792e78bea', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd4c6a26450>]}
+[0m11:33:51.825924 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m11:33:51.827028 [debug] [MainThread]: Command `dbt deps` succeeded at 11:33:51.826924 after 0.09 seconds
+[0m11:33:51.827801 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd4ca0505d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd4ca050550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd4ca1d4e90>]}
+[0m11:33:51.828688 [debug] [MainThread]: Flushing usage events
+[0m11:33:53.614575 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da5dd9c9250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da5dd9bf150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da5dd9c9350>]}
+
+
+============================== 11:33:53.617870 | b4743a8b-4cfb-40de-a0c7-723498c81a76 ==============================
+[0m11:33:53.617870 [info ] [MainThread]: Running with dbt=1.6.0
+[0m11:33:53.619158 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt', 'version_check': 'True', 'debug': 'False', 'log_path': '/usr/app/dbt/logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:33:53.708142 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'b4743a8b-4cfb-40de-a0c7-723498c81a76', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da5dd8b7bd0>]}
+[0m11:33:53.717212 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'b4743a8b-4cfb-40de-a0c7-723498c81a76', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da5df2a81d0>]}
+[0m11:33:53.721282 [info ] [MainThread]: Registered adapter: postgres=1.6.0
+[0m11:33:53.765916 [debug] [MainThread]: checksum: 08dabea3fc65f9f8dd48613681c2bcd827397a7ba9ce4c6d52980aba1215e8c9, vars: {}, profile: , target: , version: 1.6.0
+[0m11:33:53.840051 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:33:53.841892 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:33:53.847329 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'b4743a8b-4cfb-40de-a0c7-723498c81a76', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da5dd9ea390>]}
+[0m11:33:53.885709 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'b4743a8b-4cfb-40de-a0c7-723498c81a76', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da5dc09c090>]}
+[0m11:33:53.887499 [info ] [MainThread]: Found 1 model, 0 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[0m11:33:53.889101 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'b4743a8b-4cfb-40de-a0c7-723498c81a76', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da5dd9b7d50>]}
+[0m11:33:53.891436 [info ] [MainThread]: 
+[0m11:33:53.893098 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m11:33:53.894916 [debug] [ThreadPool]: Acquiring new postgres connection 'list_calidad_aire'
+[0m11:33:53.903241 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire"
+[0m11:33:53.904638 [debug] [ThreadPool]: On list_calidad_aire: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m11:33:53.905795 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:33:53.911173 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.0 seconds
+[0m11:33:53.913018 [debug] [ThreadPool]: On list_calidad_aire: Close
+[0m11:33:53.915255 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_calidad_aire, now list_calidad_aire_public)
+[0m11:33:53.919692 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m11:33:53.920780 [debug] [ThreadPool]: On list_calidad_aire_public: BEGIN
+[0m11:33:53.921680 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:33:53.925389 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m11:33:53.926564 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m11:33:53.927485 [debug] [ThreadPool]: On list_calidad_aire_public: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire_public"} */
+select
+      'calidad_aire' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m11:33:53.930476 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.0 seconds
+[0m11:33:53.932330 [debug] [ThreadPool]: On list_calidad_aire_public: ROLLBACK
+[0m11:33:53.933742 [debug] [ThreadPool]: On list_calidad_aire_public: Close
+[0m11:33:53.937512 [debug] [MainThread]: Using postgres connection "master"
+[0m11:33:53.938798 [debug] [MainThread]: On master: BEGIN
+[0m11:33:53.939878 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:33:53.943884 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:33:53.944993 [debug] [MainThread]: Using postgres connection "master"
+[0m11:33:53.946091 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m11:33:53.950944 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m11:33:53.952670 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'b4743a8b-4cfb-40de-a0c7-723498c81a76', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da5de33de10>]}
+[0m11:33:53.953868 [debug] [MainThread]: On master: ROLLBACK
+[0m11:33:53.954905 [debug] [MainThread]: Using postgres connection "master"
+[0m11:33:53.955897 [debug] [MainThread]: On master: BEGIN
+[0m11:33:53.957585 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:33:53.958726 [debug] [MainThread]: On master: COMMIT
+[0m11:33:53.960064 [debug] [MainThread]: Using postgres connection "master"
+[0m11:33:53.961079 [debug] [MainThread]: On master: COMMIT
+[0m11:33:53.962543 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m11:33:53.963451 [debug] [MainThread]: On master: Close
+[0m11:33:53.964727 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:33:53.965787 [info ] [MainThread]: 
+[0m11:33:53.971865 [debug] [Thread-1 (]: Began running node model.calidad_aire_valencia.clean_pollution
+[0m11:33:53.972928 [info ] [Thread-1 (]: 1 of 1 START sql table model public.clean_pollution ............................ [RUN]
+[0m11:33:53.974212 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_calidad_aire_public, now model.calidad_aire_valencia.clean_pollution)
+[0m11:33:53.975253 [debug] [Thread-1 (]: Began compiling node model.calidad_aire_valencia.clean_pollution
+[0m11:33:53.980128 [debug] [Thread-1 (]: Writing injected SQL for node "model.calidad_aire_valencia.clean_pollution"
+[0m11:33:53.996106 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (compile): 11:33:53.976167 => 11:33:53.995886
+[0m11:33:54.002070 [debug] [Thread-1 (]: Began executing node model.calidad_aire_valencia.clean_pollution
+[0m11:33:54.028360 [debug] [Thread-1 (]: Writing runtime sql for node "model.calidad_aire_valencia.clean_pollution"
+[0m11:33:54.089675 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:33:54.091867 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: BEGIN
+[0m11:33:54.094662 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:33:54.100930 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m11:33:54.103521 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:33:54.108118 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+
+  
+    
+
+  create  table "calidad_aire"."public"."clean_pollution__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+SELECT
+    -- El valor de contaminación
+    CAST(data->>'no2' AS NUMERIC) as indice_aqi,
+    
+    -- El nombre de la estación
+    COALESCE(data->>'nombre', 'Estación ' || COALESCE(data->>'objectid', 'X')) as nombre_estacion,
+    
+    -- EXTRAEMOS LAS COORDENADAS (¡La parte nueva!)
+    -- La API suele devolver geo_point_2d como un objeto JSON {"lon": X, "lat": Y}
+    CAST(data->'geo_point_2d'->>'lat' AS NUMERIC) as latitud,
+    CAST(data->'geo_point_2d'->>'lon' AS NUMERIC) as longitud,
+
+    ingestion_time
+
+FROM raw_pollution
+WHERE data->>'no2' IS NOT NULL
+-- Solo nos quedamos con filas que tengan coordenadas para poder calcular distancias
+AND data->'geo_point_2d'->>'lat' IS NOT NULL
+  );
+  
+[0m11:33:54.113328 [debug] [Thread-1 (]: SQL status: SELECT 0 in 0.0 seconds
+[0m11:33:54.118616 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:33:54.120169 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+alter table "calidad_aire"."public"."clean_pollution__dbt_tmp" rename to "clean_pollution"
+[0m11:33:54.122112 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m11:33:54.134825 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m11:33:54.136706 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:33:54.138449 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m11:33:54.141226 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m11:33:54.147761 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:33:54.149166 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+drop table if exists "calidad_aire"."public"."clean_pollution__dbt_backup" cascade
+[0m11:33:54.150862 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m11:33:54.152965 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (execute): 11:33:54.006421 => 11:33:54.152856
+[0m11:33:54.154389 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: Close
+[0m11:33:54.155886 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'b4743a8b-4cfb-40de-a0c7-723498c81a76', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da5dc0f9990>]}
+[0m11:33:54.157151 [info ] [Thread-1 (]: 1 of 1 OK created sql table model public.clean_pollution ....................... [[32mSELECT 0[0m in 0.18s]
+[0m11:33:54.158368 [debug] [Thread-1 (]: Finished running node model.calidad_aire_valencia.clean_pollution
+[0m11:33:54.167178 [debug] [MainThread]: Using postgres connection "master"
+[0m11:33:54.168423 [debug] [MainThread]: On master: BEGIN
+[0m11:33:54.169841 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:33:54.174088 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:33:54.175334 [debug] [MainThread]: On master: COMMIT
+[0m11:33:54.176466 [debug] [MainThread]: Using postgres connection "master"
+[0m11:33:54.177496 [debug] [MainThread]: On master: COMMIT
+[0m11:33:54.178585 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m11:33:54.179489 [debug] [MainThread]: On master: Close
+[0m11:33:54.180925 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:33:54.183725 [debug] [MainThread]: Connection 'model.calidad_aire_valencia.clean_pollution' was properly closed.
+[0m11:33:54.184886 [info ] [MainThread]: 
+[0m11:33:54.185983 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.29 seconds (0.29s).
+[0m11:33:54.187144 [debug] [MainThread]: Command end result
+[0m11:33:54.232622 [info ] [MainThread]: 
+[0m11:33:54.239655 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:33:54.241154 [info ] [MainThread]: 
+[0m11:33:54.247262 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m11:33:54.253764 [debug] [MainThread]: Command `dbt run` succeeded at 11:33:54.253664 after 0.66 seconds
+[0m11:33:54.257731 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da5e1a52250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da5e196c550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da5def3b110>]}
+[0m11:33:54.265753 [debug] [MainThread]: Flushing usage events
+[0m11:37:20.759586 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x739c611de3d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x739c611ddf10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x739c611de650>]}
+
+
+============================== 11:37:20.786018 | 89af53ca-a65c-4647-8550-777664636ad2 ==============================
+[0m11:37:20.786018 [info ] [MainThread]: Running with dbt=1.6.0
+[0m11:37:20.798594 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/usr/app/dbt/logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt deps', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:37:20.958746 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '89af53ca-a65c-4647-8550-777664636ad2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x739c6121f190>]}
+[0m11:37:21.045662 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m11:37:21.066731 [debug] [MainThread]: Command `dbt deps` succeeded at 11:37:21.066580 after 0.71 seconds
+[0m11:37:21.089372 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x739c611be2d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x739c611be410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x739c611dca50>]}
+[0m11:37:21.115247 [debug] [MainThread]: Flushing usage events
+[0m11:37:23.463230 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7988655690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f798864f990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f798864f710>]}
+
+
+============================== 11:37:23.466763 | b1289ba2-e63c-4fa5-a107-15b5127f8dd9 ==============================
+[0m11:37:23.466763 [info ] [MainThread]: Running with dbt=1.6.0
+[0m11:37:23.468025 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt', 'debug': 'False', 'version_check': 'True', 'log_path': '/usr/app/dbt/logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt run', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m11:37:23.618691 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'b1289ba2-e63c-4fa5-a107-15b5127f8dd9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7988fca0d0>]}
+[0m11:37:23.625535 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'b1289ba2-e63c-4fa5-a107-15b5127f8dd9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7988548710>]}
+[0m11:37:23.627924 [info ] [MainThread]: Registered adapter: postgres=1.6.0
+[0m11:37:23.645984 [debug] [MainThread]: checksum: 08dabea3fc65f9f8dd48613681c2bcd827397a7ba9ce4c6d52980aba1215e8c9, vars: {}, profile: , target: , version: 1.6.0
+[0m11:37:23.719925 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:37:23.723020 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:37:23.729031 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'b1289ba2-e63c-4fa5-a107-15b5127f8dd9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7988fc9f90>]}
+[0m11:37:23.780876 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'b1289ba2-e63c-4fa5-a107-15b5127f8dd9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7986d28310>]}
+[0m11:37:23.783002 [info ] [MainThread]: Found 1 model, 0 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[0m11:37:23.784913 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'b1289ba2-e63c-4fa5-a107-15b5127f8dd9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f798864f150>]}
+[0m11:37:23.787801 [info ] [MainThread]: 
+[0m11:37:23.790617 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m11:37:23.794029 [debug] [ThreadPool]: Acquiring new postgres connection 'list_calidad_aire'
+[0m11:37:23.805516 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire"
+[0m11:37:23.807709 [debug] [ThreadPool]: On list_calidad_aire: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m11:37:23.809455 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:37:23.819779 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.0 seconds
+[0m11:37:23.822679 [debug] [ThreadPool]: On list_calidad_aire: Close
+[0m11:37:23.825091 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_calidad_aire, now list_calidad_aire_public)
+[0m11:37:23.830877 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m11:37:23.832339 [debug] [ThreadPool]: On list_calidad_aire_public: BEGIN
+[0m11:37:23.833446 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:37:23.838875 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m11:37:23.841399 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m11:37:23.844778 [debug] [ThreadPool]: On list_calidad_aire_public: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire_public"} */
+select
+      'calidad_aire' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m11:37:23.855652 [debug] [ThreadPool]: SQL status: SELECT 3 in 0.0 seconds
+[0m11:37:23.860070 [debug] [ThreadPool]: On list_calidad_aire_public: ROLLBACK
+[0m11:37:23.863600 [debug] [ThreadPool]: On list_calidad_aire_public: Close
+[0m11:37:23.869111 [debug] [MainThread]: Using postgres connection "master"
+[0m11:37:23.870518 [debug] [MainThread]: On master: BEGIN
+[0m11:37:23.871681 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:37:23.877707 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:37:23.880027 [debug] [MainThread]: Using postgres connection "master"
+[0m11:37:23.884212 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m11:37:23.892214 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m11:37:23.895338 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'b1289ba2-e63c-4fa5-a107-15b5127f8dd9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f79891f3010>]}
+[0m11:37:23.899895 [debug] [MainThread]: On master: ROLLBACK
+[0m11:37:23.902052 [debug] [MainThread]: Using postgres connection "master"
+[0m11:37:23.905287 [debug] [MainThread]: On master: BEGIN
+[0m11:37:23.907400 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:37:23.909160 [debug] [MainThread]: On master: COMMIT
+[0m11:37:23.910285 [debug] [MainThread]: Using postgres connection "master"
+[0m11:37:23.911452 [debug] [MainThread]: On master: COMMIT
+[0m11:37:23.913449 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m11:37:23.914660 [debug] [MainThread]: On master: Close
+[0m11:37:23.916287 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:37:23.918492 [info ] [MainThread]: 
+[0m11:37:23.926107 [debug] [Thread-1 (]: Began running node model.calidad_aire_valencia.clean_pollution
+[0m11:37:23.929354 [info ] [Thread-1 (]: 1 of 1 START sql table model public.clean_pollution ............................ [RUN]
+[0m11:37:23.932513 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_calidad_aire_public, now model.calidad_aire_valencia.clean_pollution)
+[0m11:37:23.933747 [debug] [Thread-1 (]: Began compiling node model.calidad_aire_valencia.clean_pollution
+[0m11:37:23.940447 [debug] [Thread-1 (]: Writing injected SQL for node "model.calidad_aire_valencia.clean_pollution"
+[0m11:37:23.959302 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (compile): 11:37:23.935397 => 11:37:23.959040
+[0m11:37:23.961064 [debug] [Thread-1 (]: Began executing node model.calidad_aire_valencia.clean_pollution
+[0m11:37:23.990776 [debug] [Thread-1 (]: Writing runtime sql for node "model.calidad_aire_valencia.clean_pollution"
+[0m11:37:24.008821 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:37:24.010737 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: BEGIN
+[0m11:37:24.017357 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:37:24.024769 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m11:37:24.027215 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:37:24.029166 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+
+  
+    
+
+  create  table "calidad_aire"."public"."clean_pollution__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+SELECT
+    -- El valor de contaminación
+    CAST(data->>'no2' AS NUMERIC) as indice_aqi,
+    
+    -- El nombre de la estación
+    COALESCE(data->>'nombre', 'Estación ' || COALESCE(data->>'objectid', 'X')) as nombre_estacion,
+    
+    -- EXTRAEMOS LAS COORDENADAS (¡La parte nueva!)
+    -- La API suele devolver geo_point_2d como un objeto JSON {"lon": X, "lat": Y}
+    CAST(data->'geo_point_2d'->>'lat' AS NUMERIC) as latitud,
+    CAST(data->'geo_point_2d'->>'lon' AS NUMERIC) as longitud,
+
+    ingestion_time
+
+FROM raw_pollution
+WHERE data->>'no2' IS NOT NULL
+-- Solo nos quedamos con filas que tengan coordenadas para poder calcular distancias
+AND data->'geo_point_2d'->>'lat' IS NOT NULL
+  );
+  
+[0m11:37:24.053208 [debug] [Thread-1 (]: SQL status: SELECT 22 in 0.0 seconds
+[0m11:37:24.062715 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:37:24.068857 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+alter table "calidad_aire"."public"."clean_pollution" rename to "clean_pollution__dbt_backup"
+[0m11:37:24.073307 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m11:37:24.082956 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:37:24.086583 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+alter table "calidad_aire"."public"."clean_pollution__dbt_tmp" rename to "clean_pollution"
+[0m11:37:24.090414 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m11:37:24.107072 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m11:37:24.113343 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:37:24.117349 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m11:37:24.135087 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m11:37:24.147012 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:37:24.149403 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+drop table if exists "calidad_aire"."public"."clean_pollution__dbt_backup" cascade
+[0m11:37:24.157000 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m11:37:24.161964 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (execute): 11:37:23.962232 => 11:37:24.161007
+[0m11:37:24.172907 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: Close
+[0m11:37:24.181401 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'b1289ba2-e63c-4fa5-a107-15b5127f8dd9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f798867b710>]}
+[0m11:37:24.189182 [info ] [Thread-1 (]: 1 of 1 OK created sql table model public.clean_pollution ....................... [[32mSELECT 22[0m in 0.25s]
+[0m11:37:24.191872 [debug] [Thread-1 (]: Finished running node model.calidad_aire_valencia.clean_pollution
+[0m11:37:24.218092 [debug] [MainThread]: Using postgres connection "master"
+[0m11:37:24.219322 [debug] [MainThread]: On master: BEGIN
+[0m11:37:24.224811 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:37:24.229280 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:37:24.230436 [debug] [MainThread]: On master: COMMIT
+[0m11:37:24.231377 [debug] [MainThread]: Using postgres connection "master"
+[0m11:37:24.233907 [debug] [MainThread]: On master: COMMIT
+[0m11:37:24.237339 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m11:37:24.239828 [debug] [MainThread]: On master: Close
+[0m11:37:24.243000 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:37:24.245610 [debug] [MainThread]: Connection 'model.calidad_aire_valencia.clean_pollution' was properly closed.
+[0m11:37:24.247334 [info ] [MainThread]: 
+[0m11:37:24.248909 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.46 seconds (0.46s).
+[0m11:37:24.250333 [debug] [MainThread]: Command end result
+[0m11:37:24.302562 [info ] [MainThread]: 
+[0m11:37:24.309516 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:37:24.311179 [info ] [MainThread]: 
+[0m11:37:24.312868 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m11:37:24.315822 [debug] [MainThread]: Command `dbt run` succeeded at 11:37:24.315588 after 0.88 seconds
+[0m11:37:24.317869 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f798c6de3d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f798c5f8550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7988643f50>]}
+[0m11:37:24.321453 [debug] [MainThread]: Flushing usage events
+[0m11:40:31.515283 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b6a803c110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b6a8043b90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b6a803e050>]}
+
+
+============================== 11:40:31.540254 | aeafac12-73f5-47ce-85a9-52104b747b13 ==============================
+[0m11:40:31.540254 [info ] [MainThread]: Running with dbt=1.6.0
+[0m11:40:31.558697 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': '/usr/app/dbt/logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt deps', 'send_anonymous_usage_stats': 'True'}
+[0m11:40:31.721349 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'aeafac12-73f5-47ce-85a9-52104b747b13', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b6a8082a90>]}
+[0m11:40:31.779189 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m11:40:31.792306 [debug] [MainThread]: Command `dbt deps` succeeded at 11:40:31.792112 after 0.52 seconds
+[0m11:40:31.806676 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b6ac038610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b6ac038590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b6a99e1810>]}
+[0m11:40:31.823018 [debug] [MainThread]: Flushing usage events
+[0m11:40:33.951612 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77a23d2d8dd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77a23d829250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77a23d2caf10>]}
+
+
+============================== 11:40:33.955748 | fb1401a8-953e-48ed-8781-dad75cb4cf05 ==============================
+[0m11:40:33.955748 [info ] [MainThread]: Running with dbt=1.6.0
+[0m11:40:33.957437 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': '/usr/app/dbt/logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt run', 'send_anonymous_usage_stats': 'True'}
+[0m11:40:34.092136 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'fb1401a8-953e-48ed-8781-dad75cb4cf05', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77a23bb47390>]}
+[0m11:40:34.099443 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'fb1401a8-953e-48ed-8781-dad75cb4cf05', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77a23bb4be50>]}
+[0m11:40:34.101598 [info ] [MainThread]: Registered adapter: postgres=1.6.0
+[0m11:40:34.128412 [debug] [MainThread]: checksum: 08dabea3fc65f9f8dd48613681c2bcd827397a7ba9ce4c6d52980aba1215e8c9, vars: {}, profile: , target: , version: 1.6.0
+[0m11:40:34.200034 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:40:34.201445 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:40:34.206955 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'fb1401a8-953e-48ed-8781-dad75cb4cf05', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77a23d302c50>]}
+[0m11:40:34.250200 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'fb1401a8-953e-48ed-8781-dad75cb4cf05', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77a23bba4150>]}
+[0m11:40:34.251680 [info ] [MainThread]: Found 1 model, 0 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[0m11:40:34.253003 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'fb1401a8-953e-48ed-8781-dad75cb4cf05', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77a240498390>]}
+[0m11:40:34.255089 [info ] [MainThread]: 
+[0m11:40:34.256904 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m11:40:34.259050 [debug] [ThreadPool]: Acquiring new postgres connection 'list_calidad_aire'
+[0m11:40:34.266520 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire"
+[0m11:40:34.267911 [debug] [ThreadPool]: On list_calidad_aire: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m11:40:34.268991 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:40:34.274585 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.0 seconds
+[0m11:40:34.276933 [debug] [ThreadPool]: On list_calidad_aire: Close
+[0m11:40:34.279266 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_calidad_aire, now list_calidad_aire_public)
+[0m11:40:34.283780 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m11:40:34.284981 [debug] [ThreadPool]: On list_calidad_aire_public: BEGIN
+[0m11:40:34.286649 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:40:34.290466 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m11:40:34.291882 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m11:40:34.293107 [debug] [ThreadPool]: On list_calidad_aire_public: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire_public"} */
+select
+      'calidad_aire' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m11:40:34.295953 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.0 seconds
+[0m11:40:34.297591 [debug] [ThreadPool]: On list_calidad_aire_public: ROLLBACK
+[0m11:40:34.298772 [debug] [ThreadPool]: On list_calidad_aire_public: Close
+[0m11:40:34.303011 [debug] [MainThread]: Using postgres connection "master"
+[0m11:40:34.304308 [debug] [MainThread]: On master: BEGIN
+[0m11:40:34.305351 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:40:34.309574 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:40:34.311998 [debug] [MainThread]: Using postgres connection "master"
+[0m11:40:34.313897 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m11:40:34.319279 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m11:40:34.322055 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'fb1401a8-953e-48ed-8781-dad75cb4cf05', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77a23d308090>]}
+[0m11:40:34.324750 [debug] [MainThread]: On master: ROLLBACK
+[0m11:40:34.327920 [debug] [MainThread]: Using postgres connection "master"
+[0m11:40:34.330283 [debug] [MainThread]: On master: BEGIN
+[0m11:40:34.332547 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:40:34.333785 [debug] [MainThread]: On master: COMMIT
+[0m11:40:34.334984 [debug] [MainThread]: Using postgres connection "master"
+[0m11:40:34.335874 [debug] [MainThread]: On master: COMMIT
+[0m11:40:34.336964 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m11:40:34.337879 [debug] [MainThread]: On master: Close
+[0m11:40:34.339316 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:40:34.340511 [info ] [MainThread]: 
+[0m11:40:34.346543 [debug] [Thread-1 (]: Began running node model.calidad_aire_valencia.clean_pollution
+[0m11:40:34.348729 [info ] [Thread-1 (]: 1 of 1 START sql table model public.clean_pollution ............................ [RUN]
+[0m11:40:34.353172 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_calidad_aire_public, now model.calidad_aire_valencia.clean_pollution)
+[0m11:40:34.355007 [debug] [Thread-1 (]: Began compiling node model.calidad_aire_valencia.clean_pollution
+[0m11:40:34.361025 [debug] [Thread-1 (]: Writing injected SQL for node "model.calidad_aire_valencia.clean_pollution"
+[0m11:40:34.378292 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (compile): 11:40:34.356895 => 11:40:34.378045
+[0m11:40:34.380574 [debug] [Thread-1 (]: Began executing node model.calidad_aire_valencia.clean_pollution
+[0m11:40:34.404420 [debug] [Thread-1 (]: Writing runtime sql for node "model.calidad_aire_valencia.clean_pollution"
+[0m11:40:34.423017 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:40:34.424093 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: BEGIN
+[0m11:40:34.425176 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:40:34.429377 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m11:40:34.431127 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:40:34.432698 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+
+  
+    
+
+  create  table "calidad_aire"."public"."clean_pollution__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+SELECT
+    -- El valor de contaminación
+    CAST(data->>'no2' AS NUMERIC) as indice_aqi,
+    
+    -- El nombre de la estación
+    COALESCE(data->>'nombre', 'Estación ' || COALESCE(data->>'objectid', 'X')) as nombre_estacion,
+    
+    -- EXTRAEMOS LAS COORDENADAS (¡La parte nueva!)
+    -- La API suele devolver geo_point_2d como un objeto JSON {"lon": X, "lat": Y}
+    CAST(data->'geo_point_2d'->>'lat' AS NUMERIC) as latitud,
+    CAST(data->'geo_point_2d'->>'lon' AS NUMERIC) as longitud,
+
+    ingestion_time
+
+FROM raw_pollution
+WHERE data->>'no2' IS NOT NULL
+-- Solo nos quedamos con filas que tengan coordenadas para poder calcular distancias
+AND data->'geo_point_2d'->>'lat' IS NOT NULL
+  );
+  
+[0m11:40:34.439275 [debug] [Thread-1 (]: SQL status: SELECT 11 in 0.0 seconds
+[0m11:40:34.444224 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:40:34.445443 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+alter table "calidad_aire"."public"."clean_pollution__dbt_tmp" rename to "clean_pollution"
+[0m11:40:34.446712 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m11:40:34.458557 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m11:40:34.460302 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:40:34.461614 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m11:40:34.464692 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m11:40:34.471277 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:40:34.472662 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+drop table if exists "calidad_aire"."public"."clean_pollution__dbt_backup" cascade
+[0m11:40:34.474096 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m11:40:34.475903 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (execute): 11:40:34.382910 => 11:40:34.475784
+[0m11:40:34.476877 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: Close
+[0m11:40:34.478143 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fb1401a8-953e-48ed-8781-dad75cb4cf05', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77a23ba51510>]}
+[0m11:40:34.479776 [info ] [Thread-1 (]: 1 of 1 OK created sql table model public.clean_pollution ....................... [[32mSELECT 11[0m in 0.13s]
+[0m11:40:34.481202 [debug] [Thread-1 (]: Finished running node model.calidad_aire_valencia.clean_pollution
+[0m11:40:34.491952 [debug] [MainThread]: Using postgres connection "master"
+[0m11:40:34.493097 [debug] [MainThread]: On master: BEGIN
+[0m11:40:34.494224 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:40:34.497821 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:40:34.499165 [debug] [MainThread]: On master: COMMIT
+[0m11:40:34.500364 [debug] [MainThread]: Using postgres connection "master"
+[0m11:40:34.502167 [debug] [MainThread]: On master: COMMIT
+[0m11:40:34.505001 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m11:40:34.509144 [debug] [MainThread]: On master: Close
+[0m11:40:34.512633 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:40:34.517359 [debug] [MainThread]: Connection 'model.calidad_aire_valencia.clean_pollution' was properly closed.
+[0m11:40:34.518769 [info ] [MainThread]: 
+[0m11:40:34.521220 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.26 seconds (0.26s).
+[0m11:40:34.524009 [debug] [MainThread]: Command end result
+[0m11:40:34.562528 [info ] [MainThread]: 
+[0m11:40:34.564073 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:40:34.565203 [info ] [MainThread]: 
+[0m11:40:34.566520 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m11:40:34.568104 [debug] [MainThread]: Command `dbt run` succeeded at 11:40:34.568021 after 0.65 seconds
+[0m11:40:34.569815 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77a2412c0590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77a24141c150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77a24141d050>]}
+[0m11:40:34.571454 [debug] [MainThread]: Flushing usage events
+[0m11:57:23.088571 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f923734d790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9237e92450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f923735bfd0>]}
+
+
+============================== 11:57:23.093376 | f48b5b5d-46e6-4946-8e37-c22f3bf48bd3 ==============================
+[0m11:57:23.093376 [info ] [MainThread]: Running with dbt=1.6.0
+[0m11:57:23.094414 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/usr/app/dbt/logs', 'profiles_dir': '/usr/app/dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt deps', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:57:23.113297 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f48b5b5d-46e6-4946-8e37-c22f3bf48bd3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f923736cf10>]}
+[0m11:57:23.116051 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m11:57:23.116991 [debug] [MainThread]: Command `dbt deps` succeeded at 11:57:23.116893 after 0.04 seconds
+[0m11:57:23.117668 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f923b4aa210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f923b4a8510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f923b4aaf50>]}
+[0m11:57:23.119189 [debug] [MainThread]: Flushing usage events
+[0m11:57:25.299280 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79bc23b21810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79bc23b129d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79bc23b21990>]}
+
+
+============================== 11:57:25.312928 | ea8abdd2-186f-4d08-9f03-09da06314ad3 ==============================
+[0m11:57:25.312928 [info ] [MainThread]: Running with dbt=1.6.0
+[0m11:57:25.320446 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/usr/app/dbt/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m11:57:25.502076 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ea8abdd2-186f-4d08-9f03-09da06314ad3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79bc23b39410>]}
+[0m11:57:25.515625 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ea8abdd2-186f-4d08-9f03-09da06314ad3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79bc22397e90>]}
+[0m11:57:25.526867 [info ] [MainThread]: Registered adapter: postgres=1.6.0
+[0m11:57:25.556997 [debug] [MainThread]: checksum: 08dabea3fc65f9f8dd48613681c2bcd827397a7ba9ce4c6d52980aba1215e8c9, vars: {}, profile: , target: , version: 1.6.0
+[0m11:57:25.667563 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:57:25.669327 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:57:25.678430 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'ea8abdd2-186f-4d08-9f03-09da06314ad3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79bc23b4c110>]}
+[0m11:57:25.727821 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'ea8abdd2-186f-4d08-9f03-09da06314ad3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79bc223f00d0>]}
+[0m11:57:25.729635 [info ] [MainThread]: Found 1 model, 0 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[0m11:57:25.731391 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ea8abdd2-186f-4d08-9f03-09da06314ad3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79bc23b13710>]}
+[0m11:57:25.736948 [info ] [MainThread]: 
+[0m11:57:25.738941 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m11:57:25.741179 [debug] [ThreadPool]: Acquiring new postgres connection 'list_calidad_aire'
+[0m11:57:25.749692 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire"
+[0m11:57:25.751598 [debug] [ThreadPool]: On list_calidad_aire: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m11:57:25.753014 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:57:25.759198 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.0 seconds
+[0m11:57:25.761325 [debug] [ThreadPool]: On list_calidad_aire: Close
+[0m11:57:25.764138 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_calidad_aire, now list_calidad_aire_public)
+[0m11:57:25.769406 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m11:57:25.770706 [debug] [ThreadPool]: On list_calidad_aire_public: BEGIN
+[0m11:57:25.772461 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:57:25.777788 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m11:57:25.779665 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m11:57:25.781051 [debug] [ThreadPool]: On list_calidad_aire_public: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire_public"} */
+select
+      'calidad_aire' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m11:57:25.784418 [debug] [ThreadPool]: SQL status: SELECT 3 in 0.0 seconds
+[0m11:57:25.786638 [debug] [ThreadPool]: On list_calidad_aire_public: ROLLBACK
+[0m11:57:25.788299 [debug] [ThreadPool]: On list_calidad_aire_public: Close
+[0m11:57:25.793577 [debug] [MainThread]: Using postgres connection "master"
+[0m11:57:25.794709 [debug] [MainThread]: On master: BEGIN
+[0m11:57:25.795927 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:57:25.800750 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:57:25.802449 [debug] [MainThread]: Using postgres connection "master"
+[0m11:57:25.804079 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m11:57:25.810435 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m11:57:25.812625 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ea8abdd2-186f-4d08-9f03-09da06314ad3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79bc23b3a450>]}
+[0m11:57:25.814527 [debug] [MainThread]: On master: ROLLBACK
+[0m11:57:25.816510 [debug] [MainThread]: Using postgres connection "master"
+[0m11:57:25.817870 [debug] [MainThread]: On master: BEGIN
+[0m11:57:25.819124 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:57:25.820798 [debug] [MainThread]: On master: COMMIT
+[0m11:57:25.822428 [debug] [MainThread]: Using postgres connection "master"
+[0m11:57:25.823868 [debug] [MainThread]: On master: COMMIT
+[0m11:57:25.825098 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m11:57:25.826734 [debug] [MainThread]: On master: Close
+[0m11:57:25.828810 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:57:25.830253 [info ] [MainThread]: 
+[0m11:57:25.836421 [debug] [Thread-1 (]: Began running node model.calidad_aire_valencia.clean_pollution
+[0m11:57:25.838313 [info ] [Thread-1 (]: 1 of 1 START sql table model public.clean_pollution ............................ [RUN]
+[0m11:57:25.840098 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_calidad_aire_public, now model.calidad_aire_valencia.clean_pollution)
+[0m11:57:25.841703 [debug] [Thread-1 (]: Began compiling node model.calidad_aire_valencia.clean_pollution
+[0m11:57:25.847866 [debug] [Thread-1 (]: Writing injected SQL for node "model.calidad_aire_valencia.clean_pollution"
+[0m11:57:25.863504 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (compile): 11:57:25.842451 => 11:57:25.863206
+[0m11:57:25.865225 [debug] [Thread-1 (]: Began executing node model.calidad_aire_valencia.clean_pollution
+[0m11:57:25.891393 [debug] [Thread-1 (]: Writing runtime sql for node "model.calidad_aire_valencia.clean_pollution"
+[0m11:57:25.905942 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:57:25.907296 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: BEGIN
+[0m11:57:25.909949 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:57:25.916248 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m11:57:25.917993 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:57:25.919220 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+
+  
+    
+
+  create  table "calidad_aire"."public"."clean_pollution__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+SELECT
+    -- El valor de contaminación
+    CAST(data->>'no2' AS NUMERIC) as indice_aqi,
+    
+    -- El nombre de la estación
+    COALESCE(data->>'nombre', 'Estación ' || COALESCE(data->>'objectid', 'X')) as nombre_estacion,
+    
+    -- EXTRAEMOS LAS COORDENADAS (¡La parte nueva!)
+    -- La API suele devolver geo_point_2d como un objeto JSON {"lon": X, "lat": Y}
+    CAST(data->'geo_point_2d'->>'lat' AS NUMERIC) as latitud,
+    CAST(data->'geo_point_2d'->>'lon' AS NUMERIC) as longitud,
+
+    ingestion_time
+
+FROM raw_pollution
+WHERE data->>'no2' IS NOT NULL
+-- Solo nos quedamos con filas que tengan coordenadas para poder calcular distancias
+AND data->'geo_point_2d'->>'lat' IS NOT NULL
+  );
+  
+[0m11:57:25.939114 [debug] [Thread-1 (]: SQL status: SELECT 33 in 0.0 seconds
+[0m11:57:25.945079 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:57:25.947595 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+alter table "calidad_aire"."public"."clean_pollution" rename to "clean_pollution__dbt_backup"
+[0m11:57:25.949527 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m11:57:25.953386 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:57:25.955255 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+alter table "calidad_aire"."public"."clean_pollution__dbt_tmp" rename to "clean_pollution"
+[0m11:57:25.956629 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m11:57:25.969952 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m11:57:25.971849 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:57:25.973131 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m11:57:25.975421 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m11:57:25.982509 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m11:57:25.984299 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+drop table if exists "calidad_aire"."public"."clean_pollution__dbt_backup" cascade
+[0m11:57:25.988022 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m11:57:25.990200 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (execute): 11:57:25.867813 => 11:57:25.990080
+[0m11:57:25.991287 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: Close
+[0m11:57:25.993001 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ea8abdd2-186f-4d08-9f03-09da06314ad3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79bc22243b90>]}
+[0m11:57:25.994261 [info ] [Thread-1 (]: 1 of 1 OK created sql table model public.clean_pollution ....................... [[32mSELECT 33[0m in 0.15s]
+[0m11:57:25.995755 [debug] [Thread-1 (]: Finished running node model.calidad_aire_valencia.clean_pollution
+[0m11:57:26.006577 [debug] [MainThread]: Using postgres connection "master"
+[0m11:57:26.008073 [debug] [MainThread]: On master: BEGIN
+[0m11:57:26.009598 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:57:26.014369 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m11:57:26.016084 [debug] [MainThread]: On master: COMMIT
+[0m11:57:26.017216 [debug] [MainThread]: Using postgres connection "master"
+[0m11:57:26.018091 [debug] [MainThread]: On master: COMMIT
+[0m11:57:26.019090 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m11:57:26.020054 [debug] [MainThread]: On master: Close
+[0m11:57:26.021296 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:57:26.022303 [debug] [MainThread]: Connection 'model.calidad_aire_valencia.clean_pollution' was properly closed.
+[0m11:57:26.023702 [info ] [MainThread]: 
+[0m11:57:26.024963 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.29 seconds (0.29s).
+[0m11:57:26.026687 [debug] [MainThread]: Command end result
+[0m11:57:26.055837 [info ] [MainThread]: 
+[0m11:57:26.057385 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:57:26.058515 [info ] [MainThread]: 
+[0m11:57:26.059534 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m11:57:26.060801 [debug] [MainThread]: Command `dbt run` succeeded at 11:57:26.060686 after 0.87 seconds
+[0m11:57:26.061977 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79bc27b20590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79bc27c7c050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79bc27c7d050>]}
+[0m11:57:26.063707 [debug] [MainThread]: Flushing usage events
+[0m12:03:01.517898 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d29416b5910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d294317ed10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d2942dfb750>]}
+
+
+============================== 12:03:01.546968 | aa02d820-2a17-4c50-a9cd-8e0200413069 ==============================
+[0m12:03:01.546968 [info ] [MainThread]: Running with dbt=1.6.0
+[0m12:03:01.566964 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/usr/app/dbt/logs', 'debug': 'False', 'profiles_dir': '/usr/app/dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt deps', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m12:03:01.773818 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'aa02d820-2a17-4c50-a9cd-8e0200413069', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d2943a32cd0>]}
+[0m12:03:01.861188 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m12:03:01.887853 [debug] [MainThread]: Command `dbt deps` succeeded at 12:03:01.887705 after 0.70 seconds
+[0m12:03:01.909543 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d29416c3fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d29416a67d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d2945810490>]}
+[0m12:03:01.931634 [debug] [MainThread]: Flushing usage events
+[0m12:03:03.918181 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76208440d250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76208440d6d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76208440ddd0>]}
+
+
+============================== 12:03:03.921083 | aa65a84a-0c75-452a-932a-f249874f6692 ==============================
+[0m12:03:03.921083 [info ] [MainThread]: Running with dbt=1.6.0
+[0m12:03:03.922291 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': '/usr/app/dbt/logs', 'fail_fast': 'False', 'profiles_dir': '/usr/app/dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt run', 'send_anonymous_usage_stats': 'True'}
+[0m12:03:04.010439 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'aa65a84a-0c75-452a-932a-f249874f6692', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x762084431a50>]}
+[0m12:03:04.016722 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'aa65a84a-0c75-452a-932a-f249874f6692', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x762082c7fe10>]}
+[0m12:03:04.018502 [info ] [MainThread]: Registered adapter: postgres=1.6.0
+[0m12:03:04.034270 [debug] [MainThread]: checksum: 08dabea3fc65f9f8dd48613681c2bcd827397a7ba9ce4c6d52980aba1215e8c9, vars: {}, profile: , target: , version: 1.6.0
+[0m12:03:04.095770 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m12:03:04.097491 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m12:03:04.103024 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'aa65a84a-0c75-452a-932a-f249874f6692', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x762084427310>]}
+[0m12:03:04.145327 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'aa65a84a-0c75-452a-932a-f249874f6692', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x762082cd8150>]}
+[0m12:03:04.147039 [info ] [MainThread]: Found 1 model, 0 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[0m12:03:04.149833 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'aa65a84a-0c75-452a-932a-f249874f6692', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7620843fda90>]}
+[0m12:03:04.153997 [info ] [MainThread]: 
+[0m12:03:04.156233 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m12:03:04.157719 [debug] [ThreadPool]: Acquiring new postgres connection 'list_calidad_aire'
+[0m12:03:04.164713 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire"
+[0m12:03:04.165820 [debug] [ThreadPool]: On list_calidad_aire: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m12:03:04.167547 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m12:03:04.174335 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.0 seconds
+[0m12:03:04.176742 [debug] [ThreadPool]: On list_calidad_aire: Close
+[0m12:03:04.179041 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_calidad_aire, now list_calidad_aire_public)
+[0m12:03:04.184427 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m12:03:04.185282 [debug] [ThreadPool]: On list_calidad_aire_public: BEGIN
+[0m12:03:04.186074 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m12:03:04.191187 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m12:03:04.192590 [debug] [ThreadPool]: Using postgres connection "list_calidad_aire_public"
+[0m12:03:04.193485 [debug] [ThreadPool]: On list_calidad_aire_public: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "list_calidad_aire_public"} */
+select
+      'calidad_aire' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'calidad_aire' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m12:03:04.196250 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.0 seconds
+[0m12:03:04.199445 [debug] [ThreadPool]: On list_calidad_aire_public: ROLLBACK
+[0m12:03:04.201352 [debug] [ThreadPool]: On list_calidad_aire_public: Close
+[0m12:03:04.205595 [debug] [MainThread]: Using postgres connection "master"
+[0m12:03:04.207076 [debug] [MainThread]: On master: BEGIN
+[0m12:03:04.208047 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:03:04.211917 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m12:03:04.213071 [debug] [MainThread]: Using postgres connection "master"
+[0m12:03:04.213853 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m12:03:04.218394 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m12:03:04.220143 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'aa65a84a-0c75-452a-932a-f249874f6692', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x762084427d50>]}
+[0m12:03:04.221201 [debug] [MainThread]: On master: ROLLBACK
+[0m12:03:04.222207 [debug] [MainThread]: Using postgres connection "master"
+[0m12:03:04.223010 [debug] [MainThread]: On master: BEGIN
+[0m12:03:04.224109 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m12:03:04.225103 [debug] [MainThread]: On master: COMMIT
+[0m12:03:04.225809 [debug] [MainThread]: Using postgres connection "master"
+[0m12:03:04.226469 [debug] [MainThread]: On master: COMMIT
+[0m12:03:04.227789 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m12:03:04.228600 [debug] [MainThread]: On master: Close
+[0m12:03:04.229521 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m12:03:04.230539 [info ] [MainThread]: 
+[0m12:03:04.237422 [debug] [Thread-1 (]: Began running node model.calidad_aire_valencia.clean_pollution
+[0m12:03:04.238868 [info ] [Thread-1 (]: 1 of 1 START sql table model public.clean_pollution ............................ [RUN]
+[0m12:03:04.240157 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_calidad_aire_public, now model.calidad_aire_valencia.clean_pollution)
+[0m12:03:04.240992 [debug] [Thread-1 (]: Began compiling node model.calidad_aire_valencia.clean_pollution
+[0m12:03:04.245978 [debug] [Thread-1 (]: Writing injected SQL for node "model.calidad_aire_valencia.clean_pollution"
+[0m12:03:04.268200 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (compile): 12:03:04.241768 => 12:03:04.267863
+[0m12:03:04.270131 [debug] [Thread-1 (]: Began executing node model.calidad_aire_valencia.clean_pollution
+[0m12:03:04.299003 [debug] [Thread-1 (]: Writing runtime sql for node "model.calidad_aire_valencia.clean_pollution"
+[0m12:03:04.312131 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m12:03:04.313835 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: BEGIN
+[0m12:03:04.314984 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:03:04.318950 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m12:03:04.323317 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m12:03:04.325155 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+
+  
+    
+
+  create  table "calidad_aire"."public"."clean_pollution__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+SELECT
+    -- El valor de contaminación
+    CAST(data->>'no2' AS NUMERIC) as indice_aqi,
+    
+    -- El nombre de la estación
+    COALESCE(data->>'nombre', 'Estación ' || COALESCE(data->>'objectid', 'X')) as nombre_estacion,
+    
+    -- EXTRAEMOS LAS COORDENADAS (¡La parte nueva!)
+    -- La API suele devolver geo_point_2d como un objeto JSON {"lon": X, "lat": Y}
+    CAST(data->'geo_point_2d'->>'lat' AS NUMERIC) as latitud,
+    CAST(data->'geo_point_2d'->>'lon' AS NUMERIC) as longitud,
+
+    ingestion_time
+
+FROM raw_pollution
+WHERE data->>'no2' IS NOT NULL
+-- Solo nos quedamos con filas que tengan coordenadas para poder calcular distancias
+AND data->'geo_point_2d'->>'lat' IS NOT NULL
+  );
+  
+[0m12:03:04.335058 [debug] [Thread-1 (]: SQL status: SELECT 11 in 0.0 seconds
+[0m12:03:04.343180 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m12:03:04.344772 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+alter table "calidad_aire"."public"."clean_pollution__dbt_tmp" rename to "clean_pollution"
+[0m12:03:04.346653 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m12:03:04.358293 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m12:03:04.359944 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m12:03:04.361190 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: COMMIT
+[0m12:03:04.363700 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m12:03:04.370303 [debug] [Thread-1 (]: Using postgres connection "model.calidad_aire_valencia.clean_pollution"
+[0m12:03:04.372545 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: /* {"app": "dbt", "dbt_version": "1.6.0", "profile_name": "calidad_aire_profile", "target_name": "dev", "node_id": "model.calidad_aire_valencia.clean_pollution"} */
+drop table if exists "calidad_aire"."public"."clean_pollution__dbt_backup" cascade
+[0m12:03:04.374294 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m12:03:04.376285 [debug] [Thread-1 (]: Timing info for model.calidad_aire_valencia.clean_pollution (execute): 12:03:04.271527 => 12:03:04.376160
+[0m12:03:04.377388 [debug] [Thread-1 (]: On model.calidad_aire_valencia.clean_pollution: Close
+[0m12:03:04.379149 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'aa65a84a-0c75-452a-932a-f249874f6692', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x762082afa9d0>]}
+[0m12:03:04.382134 [info ] [Thread-1 (]: 1 of 1 OK created sql table model public.clean_pollution ....................... [[32mSELECT 11[0m in 0.14s]
+[0m12:03:04.383512 [debug] [Thread-1 (]: Finished running node model.calidad_aire_valencia.clean_pollution
+[0m12:03:04.397313 [debug] [MainThread]: Using postgres connection "master"
+[0m12:03:04.398444 [debug] [MainThread]: On master: BEGIN
+[0m12:03:04.399530 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m12:03:04.403433 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m12:03:04.404980 [debug] [MainThread]: On master: COMMIT
+[0m12:03:04.406372 [debug] [MainThread]: Using postgres connection "master"
+[0m12:03:04.407645 [debug] [MainThread]: On master: COMMIT
+[0m12:03:04.409105 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m12:03:04.410196 [debug] [MainThread]: On master: Close
+[0m12:03:04.411484 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m12:03:04.412919 [debug] [MainThread]: Connection 'model.calidad_aire_valencia.clean_pollution' was properly closed.
+[0m12:03:04.413615 [info ] [MainThread]: 
+[0m12:03:04.414760 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.26 seconds (0.26s).
+[0m12:03:04.416291 [debug] [MainThread]: Command end result
+[0m12:03:04.465504 [info ] [MainThread]: 
+[0m12:03:04.467814 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m12:03:04.471321 [info ] [MainThread]: 
+[0m12:03:04.472666 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m12:03:04.473927 [debug] [MainThread]: Command `dbt run` succeeded at 12:03:04.473839 after 0.58 seconds
+[0m12:03:04.475067 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x762085c6d8d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x762085c63090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7620883f4590>]}
+[0m12:03:04.476215 [debug] [MainThread]: Flushing usage events
