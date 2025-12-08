@@ -11,7 +11,7 @@ from geopy.distance import geodesic
 # --- CONFIGURACIÓN ---
 DB_USER = "admin"
 DB_PASS = "admin"
-DB_HOST = "postgres_dp1"
+DB_HOST = "postgres"
 DB_PORT = "5432"
 DB_NAME = "calidad_aire"
 DATABASE_URI = f'postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
@@ -184,11 +184,11 @@ def check_street_alert(n_clicks, calle):
         alert = dbc.Alert([html.H5(f"{mensaje} en {nombre}"), html.P(f"Distancia: {dist_txt}")], color=color_alert)
             
         fig = go.Figure(go.Indicator(
-            mode = "gauge+number",
-            value = nivel,
-            number = {'font': {'size': 50}, 'suffix': " µg/m³"}, 
-            title = {'text': "Nivel NO2", 'font': {'size': 20, 'color': 'gray'}},
-            gauge = {
+            mode="gauge+number",
+            value=nivel,
+            number={'font': {'size': 50}, 'suffix': " µg/m³"},
+            title={'text': "Nivel NO2", 'font': {'size': 20, 'color': 'gray'}},
+            gauge={
                 'axis': {'range': [None, 300], 'tickwidth': 1},
                 'bar': {'color': "#2c3e50"},
                 'bgcolor': "white",
@@ -200,13 +200,19 @@ def check_street_alert(n_clicks, calle):
                 'threshold': {'line': {'color': "#e74c3c", 'width': 4}, 'thickness': 0.8, 'value': LIMITE_NO2}
             }
         ))
-        fig.update_layout(height=300, margin=dict(l=30, r=30, t=50, b=50), paper_bgcolor="rgba(0,0,0,0)", font={'family': "Arial"})
+
+        fig.update_layout(
+            height=300,
+            margin=dict(l=30, r=30, t=50, b=50),
+            paper_bgcolor="rgba(0,0,0,0)",
+            font={'family': "Arial"}
+        )
         
         return alert, fig, {'display': 'block'}, nombre, user_coords
             
     return dbc.Alert("Error.", color="warning"), empty_fig, empty_style, None, None
 
-# 2. Mapa (CORREGIDO PARA VER EL PUNTO ROJO)
+# 2. Mapa — único lugar donde debe ir mapbox.style
 @app.callback(
     Output('mapa-valencia', 'figure'),
     [Input('interval-component', 'n_intervals'),
@@ -227,8 +233,9 @@ def update_map(n, estacion_seleccionada, ubicacion_usuario):
 
     if df_map.empty:
         return px.scatter_mapbox(lat=[lat_center], lon=[lon_center], zoom=zoom_level)
-    
+
     df_map['Estado'] = df_map['indice_aqi'].apply(lambda x: 'Peligro' if x > LIMITE_NO2 else 'Bueno')
+
     if estacion_seleccionada:
         df_map.loc[df_map['nombre_estacion'] == estacion_seleccionada, 'Estado'] = 'Estación Cercana'
 
@@ -240,7 +247,6 @@ def update_map(n, estacion_seleccionada, ubicacion_usuario):
         'Estación Cercana': '#0000FF'
     }
 
-    # Capa 1: Estaciones
     fig_map = px.scatter_mapbox(
         df_map, 
         lat="latitud", lon="longitud", 
@@ -254,28 +260,34 @@ def update_map(n, estacion_seleccionada, ubicacion_usuario):
         mapbox_style="open-street-map"
     )
 
-    # Capa 2: TU UBICACIÓN (ARREGLADA)
     if ubicacion_usuario:
         fig_map.add_trace(go.Scattermapbox(
             lat=[ubicacion_usuario[0]],
             lon=[ubicacion_usuario[1]],
-            mode='markers+text', # Pone el punto Y el texto
+            mode='markers+text',
             marker=go.scattermapbox.Marker(
-                size=25,       # Grande
-                color='red',   # Rojo
+                size=25,
+                color='red',
                 opacity=1,
             ),
             name="TU POSICIÓN",
-            text=["📍 TÚ"], # Escribe esto en el mapa
+            text=["📍 TÚ"],
             textposition="top center",
             textfont=dict(size=14, color='black'),
             hoverinfo='text'
         ))
 
-    fig_map.update_layout(margin=dict(l=0, r=0, t=0, b=0))
+    # único layout mapbox correcto
+    fig_map.update_layout(
+        margin=dict(l=0, r=0, t=0, b=0),
+        mapbox=dict(style="open-street-map")
+    )
+
+    fig_map.layout.mapbox = dict(style="open-street-map")
+
     return fig_map
 
-# 3. Tendencia
+# 3. Tendencias — NO usan Mapbox
 @app.callback(
     [Output('grafico-tendencia', 'figure'),
      Output('titulo-tendencia', 'children')],
@@ -291,15 +303,35 @@ def update_trend_graph(estacion_seleccionada, n):
         fig = px.area(df_hist, x='ingestion_time', y='indice_aqi', markers=True, title="")
         fig.add_hline(y=LIMITE_NO2, line_dash="dash", line_color="red", annotation_text="Límite Tóxico")
         fig.update_traces(line_color='#3498db', fillcolor="rgba(52, 152, 219, 0.2)")
-        fig.update_layout(margin=dict(l=20, r=20, t=20, b=20), paper_bgcolor="rgba(0,0,0,0)", yaxis_title="Nivel NO2")
+        fig.update_layout(
+            margin=dict(l=20, r=20, t=20, b=20),
+            paper_bgcolor="rgba(0,0,0,0)",
+            yaxis_title="Nivel NO2"
+        )
         return fig, f"📉 Evolución de contaminación en: {estacion_seleccionada}"
 
     else:
         df_top = get_top_polluted()
-        if df_top.empty: return px.bar(title="Cargando..."), "📊 Ranking"
-        fig = px.bar(df_top, x='indice_aqi', y='nombre_estacion', orientation='h', text='indice_aqi', color='indice_aqi', color_continuous_scale='Reds')
-        fig.update_layout(yaxis={'categoryorder':'total ascending'}, margin=dict(l=20, r=20, t=20, b=20), paper_bgcolor="rgba(0,0,0,0)")
+        if df_top.empty:
+            return px.bar(title="Cargando..."), "📊 Ranking"
+
+        fig = px.bar(
+            df_top,
+            x='indice_aqi',
+            y='nombre_estacion',
+            orientation='h',
+            text='indice_aqi',
+            color='indice_aqi',
+            color_continuous_scale='Reds'
+        )
+
+        fig.update_layout(
+            yaxis={'categoryorder': 'total ascending'},
+            margin=dict(l=20, r=20, t=20, b=20),
+            paper_bgcolor="rgba(0,0,0,0)"
+        )
+
         return fig, "📊 Top 5 Barrios más contaminados ahora mismo"
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=8050, debug=True)
+    app.run(host='0.0.0.0', port=8050, debug=True)
