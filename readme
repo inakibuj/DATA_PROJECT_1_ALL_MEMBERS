@@ -1,4 +1,4 @@
-# Quality Air – Instrucciones de ejecución
+# Quality Air – Instrucciones de ejecución.
 
 Este proyecto levanta toda la parte técnica (pipeline de datos y dashboard) mediante *Docker Compose*.  
 El corrector solo tiene que ejecutar un comando y acceder a tres URLs en su navegador.
