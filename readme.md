@@ -3,6 +3,8 @@
 Este proyecto levanta toda la parte técnica (pipeline de datos y dashboard) mediante *Docker Compose*.  
 El corrector solo tiene que ejecutar un comando y acceder a tres URLs en su navegador.
 
+ENLACE A LA DEMO: https://drive.google.com/file/d/1oNRSrZ4nSvge43Ydi0irLvxXpkvVFe3X/view?usp=sharing
+
 ---
 
 ## 1. Requisitos previos
