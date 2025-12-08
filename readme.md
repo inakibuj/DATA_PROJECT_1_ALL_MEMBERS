@@ -21,7 +21,8 @@ No es necesario instalar Python, PostgreSQL ni nada adicional de forma manual.
 2. Abrir una terminal en la carpeta raíz del proyecto (donde está el archivo docker-compose.yml).
 3. Ejecutar el siguiente comando:
 
-   bash
+   ```bash
+
    docker compose up
 
 4. Docker descargará las imágenes necesarias y levantará todos los servicios (PostgreSQL, dashboard, PgAdmin, Kafka, Kafka UI, etc.).
@@ -66,5 +67,6 @@ Para parar todos los contenedores y liberar recursos:
 
 3. (Opcional) Para eliminar los contenedores creados:
 
-   bash
+   ```bash
+   
    docker compose down
