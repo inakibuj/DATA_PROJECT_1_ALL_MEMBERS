@@ -1,0 +1,70 @@
+# Quality Air – Instrucciones de ejecución
+
+Este proyecto levanta toda la parte técnica (pipeline de datos y dashboard) mediante *Docker Compose*.  
+El corrector solo tiene que ejecutar un comando y acceder a tres URLs en su navegador.
+
+---
+
+## 1. Requisitos previos
+
+Antes de empezar, es necesario tener instalado en la máquina:
+
+- [Docker](https://www.docker.com/)
+
+No es necesario instalar Python, PostgreSQL ni nada adicional de forma manual.
+
+---
+
+## 2. Puesta en marcha del proyecto
+
+1. *Clonar o descargar* este repositorio en el ordenador.
+2. Abrir una terminal en la carpeta raíz del proyecto (donde está el archivo docker-compose.yml).
+3. Ejecutar el siguiente comando:
+
+   bash
+   docker compose up
+
+4. Docker descargará las imágenes necesarias y levantará todos los servicios (PostgreSQL, dashboard, PgAdmin, Kafka, Kafka UI, etc.).
+
+Cuando en la terminal aparezcan los logs de los distintos servicios sin errores, el entorno estará listo.
+
+---
+
+## 3. Acceso a los servicios
+
+Una vez levantado el entorno con docker compose up, se puede acceder a los diferentes componentes desde cualquier navegador web, usando localhost:
+
+1. **Dashboard de calidad del aire (Plotly Dash)**
+
+URL: http://localhost:8050/
+
+Aquí se puede ver la web del producto, con la calidad del aire por barrios/estaciones.
+
+2. **PgAdmin (gestor de la base de datos PostgreSQL)**
+
+URL: http://localhost:5050/
+
+Permite inspeccionar las tablas con los datos “raw” y “clean”.
+
+Las credenciales de acceso están configuradas en el propio docker-compose.yml y en services.json.
+
+3. **Kafka UI**
+
+URL: http://localhost:8080/
+
+Interfaz para visualizar los topics y mensajes de Kafka que utiliza el pipeline.
+
+---
+
+## 4. Detener el entorno
+
+Para parar todos los contenedores y liberar recursos:
+
+1. Ir a la terminal donde se ejecutó docker compose up.
+
+2. Pulsar Ctrl + C para detener la ejecución.
+
+3. (Opcional) Para eliminar los contenedores creados:
+
+   bash
+   docker compose down
