@@ -194,8 +194,9 @@ def check_street_alert(n_clicks, calle):
                 'bgcolor': "white",
                 'borderwidth': 0,
                 'steps': [
-                    {'range': [0, LIMITE_NO2], 'color': "#abebc6"},
-                    {'range': [LIMITE_NO2, 300], 'color': "#fadbd8"}
+                    {'range': [0, 100], 'color': "#abebc6"},
+                    {'range': [100, 150], 'color': "#dfe21d"},
+                    {'range': [150, 300], 'color': "#fadbd8"}
                 ],
                 'threshold': {'line': {'color': "#e74c3c", 'width': 4}, 'thickness': 0.8, 'value': LIMITE_NO2}
             }
@@ -222,36 +223,43 @@ def check_street_alert(n_clicks, calle):
 def update_map(n, estacion_seleccionada, ubicacion_usuario):
     df_map = get_latest_data()
     
-    lat_center = 39.4699
-    lon_center = -0.3763
-    zoom_level = 11
+    # Default map center
+    lat_center, lon_center = 39.4699, -0.3763
+    zoom_level = 9
 
     if ubicacion_usuario:
-        lat_center = ubicacion_usuario[0]
-        lon_center = ubicacion_usuario[1]
-        zoom_level = 13
+        lat_center, lon_center = ubicacion_usuario
+        zoom_level = 11
 
+    # If no data, just return an empty map
     if df_map.empty:
-        return px.scatter_mapbox(lat=[lat_center], lon=[lon_center], zoom=zoom_level)
+        fig_map = px.scatter_mapbox(
+            lat=[lat_center],
+            lon=[lon_center],
+            zoom=zoom_level,
+            mapbox_style="open-street-map"
+        )
+        return fig_map
 
+    # Add 'Estado' and size
     df_map['Estado'] = df_map['indice_aqi'].apply(lambda x: 'Peligro' if x > LIMITE_NO2 else 'Bueno')
-
     if estacion_seleccionada:
         df_map.loc[df_map['nombre_estacion'] == estacion_seleccionada, 'Estado'] = 'Estación Cercana'
+    df_map['tamano_visual'] = df_map['indice_aqi'].fillna(0) + 25  # avoid NaN
 
-    df_map['tamano_visual'] = df_map['indice_aqi'] + 25 
-    
     mapa_colores = {
         'Bueno': '#2ecc71',
         'Peligro': '#e74c3c',
         'Estación Cercana': '#0000FF'
     }
 
+    # Create map
     fig_map = px.scatter_mapbox(
-        df_map, 
-        lat="latitud", lon="longitud", 
+        df_map,
+        lat="latitud",
+        lon="longitud",
         color="Estado",
-        size="tamano_visual", 
+        size="tamano_visual",
         hover_name="nombre_estacion",
         hover_data={"indice_aqi": True, "tamano_visual": False, "latitud": False, "longitud": False},
         color_discrete_map=mapa_colores,
@@ -260,16 +268,13 @@ def update_map(n, estacion_seleccionada, ubicacion_usuario):
         mapbox_style="open-street-map"
     )
 
+    # Add user location if available
     if ubicacion_usuario:
         fig_map.add_trace(go.Scattermapbox(
             lat=[ubicacion_usuario[0]],
             lon=[ubicacion_usuario[1]],
             mode='markers+text',
-            marker=go.scattermapbox.Marker(
-                size=25,
-                color='red',
-                opacity=1,
-            ),
+            marker=go.scattermapbox.Marker(size=25, color='red', opacity=1),
             name="TU POSICIÓN",
             text=["📍 TÚ"],
             textposition="top center",
@@ -277,13 +282,11 @@ def update_map(n, estacion_seleccionada, ubicacion_usuario):
             hoverinfo='text'
         ))
 
-    # único layout mapbox correcto
+    # Final layout adjustments
     fig_map.update_layout(
         margin=dict(l=0, r=0, t=0, b=0),
-        mapbox=dict(style="open-street-map")
+        mapbox=dict(center={"lat": lat_center, "lon": lon_center}, zoom=zoom_level)
     )
-
-    fig_map.layout.mapbox = dict(style="open-street-map")
 
     return fig_map
 
