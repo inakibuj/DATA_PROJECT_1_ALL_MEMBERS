@@ -11,13 +11,16 @@ from geopy.distance import geodesic
 # --- CONFIGURACIÓN ---
 DB_USER = "admin"
 DB_PASS = "admin"
-DB_HOST = "postgres"
+# OJO: Asegúrate de que este nombre coincide con tu docker-compose (postgres o postgres_dp1)
+DB_HOST = "postgres_dp1"
 DB_PORT = "5432"
 DB_NAME = "calidad_aire"
 DATABASE_URI = f'postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
-LIMITE_NO2 = 100 
-MAX_GREEN_LEVEL=120
-MAX_YELLOW_LEVEL=200
+
+# Niveles definidos por tu equipo
+LIMITE_NO2 = 100
+MAX_GREEN_LEVEL = 120
+MAX_YELLOW_LEVEL = 200
 
 geolocator = Nominatim(user_agent="valencia_air_app")
 
@@ -27,9 +30,9 @@ def get_latest_data():
     try:
         engine = create_engine(DATABASE_URI)
         query = """
-            SELECT DISTINCT ON (nombre_estacion) 
+            SELECT DISTINCT ON (nombre_estacion)
                 nombre_estacion, indice_aqi, latitud, longitud, ingestion_time
-            FROM clean_pollution 
+            FROM clean_pollution
             ORDER BY nombre_estacion, ingestion_time DESC;
         """
         return pd.read_sql(query, engine)
@@ -37,16 +40,29 @@ def get_latest_data():
         return pd.DataFrame()
 
 def get_station_history(nombre_estacion):
+    """Recupera histórico y corrige la zona horaria a Madrid"""
     try:
         engine = create_engine(DATABASE_URI)
         query = f"""
-            SELECT ingestion_time, indice_aqi
-            FROM clean_pollution
-            WHERE nombre_estacion = '{nombre_estacion}'
-            ORDER BY ingestion_time ASC
-            LIMIT 100;
+            SELECT * FROM (
+                SELECT ingestion_time, indice_aqi
+                FROM clean_pollution
+                WHERE nombre_estacion = '{nombre_estacion}'
+                ORDER BY ingestion_time DESC
+                LIMIT 100
+            ) sub
+            ORDER BY ingestion_time ASC;
         """
-        return pd.read_sql(query, engine)
+        df = pd.read_sql(query, engine)
+
+        # --- CORRECCIÓN DE HORA ---
+        if not df.empty:
+            df['ingestion_time'] = pd.to_datetime(df['ingestion_time'])
+            if df['ingestion_time'].dt.tz is None:
+                df['ingestion_time'] = df['ingestion_time'].dt.tz_localize('UTC')
+            df['ingestion_time'] = df['ingestion_time'].dt.tz_convert('Europe/Madrid')
+
+        return df
     except Exception:
         return pd.DataFrame()
 
@@ -123,13 +139,13 @@ trend_card = dbc.Card(
 app.layout = dbc.Container(
     [
         navbar,
-        dcc.Store(id='estacion-seleccionada-store'), 
+        dcc.Store(id='estacion-seleccionada-store'),
         dcc.Store(id='ubicacion-usuario-store'),
 
         dbc.Row([dbc.Col(search_card, md=8, className="offset-md-2")], className="mb-4"),
         dbc.Row([dbc.Col(map_card, md=12)], className="mb-4"),
         dbc.Row([dbc.Col(trend_card, md=12)]),
-        
+
         html.Div("Dashboard de Ingeniería de Datos", className="text-center text-muted my-4"),
         dcc.Interval(id='interval-component', interval=60*1000, n_intervals=0)
     ],
@@ -152,7 +168,7 @@ app.layout = dbc.Container(
 def check_street_alert(n_clicks, calle):
     empty_style = {'display': 'none'}
     empty_fig = {}
-    
+
     if n_clicks == 0 or not calle:
         return "", empty_fig, empty_style, None, None
 
@@ -168,7 +184,7 @@ def check_street_alert(n_clicks, calle):
 
     min_dist = float('inf')
     nearest_station = None
-    
+
     for _, row in df.iterrows():
         if pd.notnull(row['latitud']):
             dist = geodesic(user_coords, (row['latitud'], row['longitud'])).km
@@ -180,11 +196,11 @@ def check_street_alert(n_clicks, calle):
         nivel = nearest_station['indice_aqi']
         nombre = nearest_station['nombre_estacion']
         dist_txt = f"{min_dist:.2f} km"
-        
+
         color_alert = "danger" if nivel > MAX_YELLOW_LEVEL else "success"
         mensaje = "🚨 PELIGRO" if nivel > MAX_YELLOW_LEVEL else "✅ AIRE LIMPIO"
         alert = dbc.Alert([html.H5(f"{mensaje} en {nombre}"), html.P(f"Distancia: {dist_txt}")], color=color_alert)
-            
+
         fig = go.Figure(go.Indicator(
             mode="gauge+number",
             value=nivel,
@@ -210,12 +226,12 @@ def check_street_alert(n_clicks, calle):
             paper_bgcolor="rgba(0,0,0,0)",
             font={'family': "Arial"}
         )
-        
+
         return alert, fig, {'display': 'block'}, nombre, user_coords
-            
+
     return dbc.Alert("Error.", color="warning"), empty_fig, empty_style, None, None
 
-# 2. Mapa — único lugar donde debe ir mapbox.style
+# 2. Mapa
 @app.callback(
     Output('mapa-valencia', 'figure'),
     [Input('interval-component', 'n_intervals'),
@@ -224,30 +240,29 @@ def check_street_alert(n_clicks, calle):
 )
 def update_map(n, estacion_seleccionada, ubicacion_usuario):
     df_map = get_latest_data()
-    
-    # Default map center
+
     lat_center, lon_center = 39.4699, -0.3763
     zoom_level = 9
 
     if ubicacion_usuario:
         lat_center, lon_center = ubicacion_usuario
-        zoom_level = 11
+        zoom_level = 13
 
-    # If no data, just return an empty map
     if df_map.empty:
-        fig_map = px.scatter_mapbox(
-            lat=[lat_center],
-            lon=[lon_center],
-            zoom=zoom_level,
-            mapbox_style="open-street-map"
+        return px.scatter_mapbox(
+            lat=[lat_center], lon=[lon_center], zoom=zoom_level, mapbox_style="open-street-map"
         )
-        return fig_map
 
-    # Add 'Estado' and size
-    df_map['Estado'] = df_map['indice_aqi'].apply(lambda x: 'Peligro' if x > MAX_YELLOW_LEVEL else 'Bueno')
+    def clasificar_estado(x):
+        if x > MAX_YELLOW_LEVEL: return 'Peligro'
+        return 'Bueno'
+
+    df_map['Estado'] = df_map['indice_aqi'].apply(clasificar_estado)
+
     if estacion_seleccionada:
         df_map.loc[df_map['nombre_estacion'] == estacion_seleccionada, 'Estado'] = 'Estación Cercana'
-    df_map['tamano_visual'] = df_map['indice_aqi'].fillna(0) + 25  # avoid NaN
+
+    df_map['tamano_visual'] = df_map['indice_aqi'].fillna(0) + 25
 
     mapa_colores = {
         'Bueno': '#2ecc71',
@@ -255,7 +270,6 @@ def update_map(n, estacion_seleccionada, ubicacion_usuario):
         'Estación Cercana': '#0000FF'
     }
 
-    # Create map
     fig_map = px.scatter_mapbox(
         df_map,
         lat="latitud",
@@ -270,7 +284,6 @@ def update_map(n, estacion_seleccionada, ubicacion_usuario):
         mapbox_style="open-street-map"
     )
 
-    # Add user location if available
     if ubicacion_usuario:
         fig_map.add_trace(go.Scattermapbox(
             lat=[ubicacion_usuario[0]],
@@ -284,15 +297,14 @@ def update_map(n, estacion_seleccionada, ubicacion_usuario):
             hoverinfo='text'
         ))
 
-    # Final layout adjustments
     fig_map.update_layout(
         margin=dict(l=0, r=0, t=0, b=0),
-        mapbox=dict(center={"lat": lat_center, "lon": lon_center}, zoom=zoom_level)
+        mapbox=dict(center={"lat": lat_center, "lon": lon_center}, zoom=zoom_level, style="open-street-map")
     )
 
     return fig_map
 
-# 3. Tendencias — NO usan Mapbox
+# 3. Tendencias
 @app.callback(
     [Output('grafico-tendencia', 'figure'),
      Output('titulo-tendencia', 'children')],
@@ -304,7 +316,7 @@ def update_trend_graph(estacion_seleccionada, n):
         df_hist = get_station_history(estacion_seleccionada)
         if df_hist.empty:
             return px.line(title="Sin datos"), f"Histórico: {estacion_seleccionada}"
-        
+
         fig = px.area(df_hist, x='ingestion_time', y='indice_aqi', markers=True, title="")
         fig.add_hline(y=MAX_YELLOW_LEVEL, line_dash="dash", line_color="red", annotation_text="Límite Tóxico")
         fig.update_traces(line_color='#3498db', fillcolor="rgba(52, 152, 219, 0.2)")
@@ -320,14 +332,17 @@ def update_trend_graph(estacion_seleccionada, n):
         if df_top.empty:
             return px.bar(title="Cargando..."), "📊 Ranking"
 
+        # --- CAMBIO AQUÍ: Escala gradiente de VERDES ---
         fig = px.bar(
             df_top,
             x='indice_aqi',
             y='nombre_estacion',
             orientation='h',
             text='indice_aqi',
+            # Usamos el valor numérico para el color
             color='indice_aqi',
-            color_continuous_scale='Reds'
+            # Usamos la escala continua de verdes
+            color_continuous_scale='Greens'
         )
 
         fig.update_layout(
