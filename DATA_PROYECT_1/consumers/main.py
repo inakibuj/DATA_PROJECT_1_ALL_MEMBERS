@@ -11,7 +11,7 @@ TOPIC_POLLUTION = "valencia_pollution"
 TOPIC_WEATHER = "valencia_weather"
 
 # CONFIGURACIÓN POSTGRES
-PG_HOST = "postgres_dp1"
+PG_HOST = "postgres"
 PG_DB = "calidad_aire"
 PG_USER = "admin"
 PG_PASS = "admin"

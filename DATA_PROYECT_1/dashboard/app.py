@@ -12,7 +12,7 @@ from geopy.distance import geodesic
 DB_USER = "admin"
 DB_PASS = "admin"
 # OJO: Asegúrate de que este nombre coincide con tu docker-compose (postgres o postgres_dp1)
-DB_HOST = "postgres_dp1"
+DB_HOST = "postgres"
 DB_PORT = "5432"
 DB_NAME = "calidad_aire"
 DATABASE_URI = f'postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
